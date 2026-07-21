@@ -26,8 +26,8 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v3";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v2";
+const STORAGE_KEY = "pingan-question-bank-v4";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v3";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const seedQuestions = sourceQuestions as Question[];
