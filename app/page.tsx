@@ -26,13 +26,15 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v4";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v3";
+const STORAGE_KEY = "pingan-question-bank-v5";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v4";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const seedQuestions = sourceQuestions as Question[];
-const refreshedB02Images = new Map(
-  seedQuestions.filter((question) => question.section === "B02").map((question) => [question.code, question.image]),
+const refreshedSeedImages = new Map(
+  seedQuestions
+    .filter((question) => ["B02", "B03", "B04"].includes(question.section))
+    .map((question) => [question.code, question.image]),
 );
 
 const blankQuestion = (): Question => ({
@@ -110,7 +112,7 @@ export default function Home() {
         if (Array.isArray(incoming)) {
           setQuestions(incoming.map(normalizeQuestion).map((question) => ({
             ...question,
-            image: refreshedB02Images.get(question.code) || question.image,
+            image: refreshedSeedImages.get(question.code) || question.image,
           })));
         }
       } catch {
