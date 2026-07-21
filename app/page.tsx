@@ -26,14 +26,14 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v5";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v4";
+const STORAGE_KEY = "pingan-question-bank-v6";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v5";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const seedQuestions = sourceQuestions as Question[];
 const refreshedSeedImages = new Map(
   seedQuestions
-    .filter((question) => ["B02", "B03", "B04"].includes(question.section))
+    .filter((question) => ["B01", "B02", "B03", "B04"].includes(question.section))
     .map((question) => [question.code, question.image]),
 );
 
