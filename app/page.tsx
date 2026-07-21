@@ -26,10 +26,14 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v2";
+const STORAGE_KEY = "pingan-question-bank-v3";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v2";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const seedQuestions = sourceQuestions as Question[];
+const refreshedB02Images = new Map(
+  seedQuestions.filter((question) => question.section === "B02").map((question) => [question.code, question.image]),
+);
 
 const blankQuestion = (): Question => ({
   id: crypto.randomUUID(),
@@ -99,13 +103,19 @@ export default function Home() {
   const fileInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
     if (saved) {
       try {
         const incoming = JSON.parse(saved) as Partial<Question>[];
-        if (Array.isArray(incoming)) setQuestions(incoming.map(normalizeQuestion));
+        if (Array.isArray(incoming)) {
+          setQuestions(incoming.map(normalizeQuestion).map((question) => ({
+            ...question,
+            image: refreshedB02Images.get(question.code) || question.image,
+          })));
+        }
       } catch {
         localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(LEGACY_STORAGE_KEY);
       }
     }
     setReady(true);
