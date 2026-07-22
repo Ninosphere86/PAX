@@ -7,6 +7,33 @@ type QuestionType = "单选题" | "多选题" | "判断题" | "简答题";
 type Difficulty = "基础" | "进阶" | "困难";
 type Status = "已发布" | "待审核" | "草稿";
 type OptionKey = "A" | "B" | "C" | "D";
+type WorkspaceRole = "admin" | "editor" | "viewer";
+
+type WorkspaceUser = {
+  displayName: string;
+  email: string;
+  fullName: string | null;
+};
+
+type AuditLog = {
+  id: number;
+  action: string;
+  question_id: string | null;
+  question_code: string | null;
+  summary: string;
+  actor_email: string;
+  actor_name: string;
+  created_at: string;
+};
+
+type Permission = {
+  email: string;
+  display_name: string;
+  role: "admin" | "editor";
+  added_by: string;
+  created_at: string;
+  updated_at: string;
+};
 
 type Question = {
   id: string;
@@ -27,7 +54,6 @@ type Question = {
 };
 
 const STORAGE_KEY = "pingan-question-bank-v10";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v9";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const CATEGORY_RENAMES: Record<string, string> = {
@@ -41,11 +67,6 @@ const CATEGORY_RENAMES: Record<string, string> = {
   "T 类题目": "专项题型类-T",
 };
 const seedQuestions = sourceQuestions as Question[];
-const refreshedSeedImages = new Map(
-  seedQuestions
-    .filter((question) => ["B01", "B02", "B03", "B04", "B05", "B06", "L01"].includes(question.section))
-    .map((question) => [question.code, question.image]),
-);
 
 const blankQuestion = (): Question => ({
   id: crypto.randomUUID(),
@@ -134,6 +155,12 @@ function buildFinalQuestionBank(questions: Question[]) {
   };
 }
 
+function formatLogTime(value: string) {
+  const normalized = value.includes("T") ? value : `${value.replace(" ", "T")}Z`;
+  const date = new Date(normalized);
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleString("zh-CN", { hour12: false });
+}
+
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>(seedQuestions);
   const [ready, setReady] = useState(false);
@@ -149,30 +176,53 @@ export default function Home() {
   const [toast, setToast] = useState("");
   const [quiz, setQuiz] = useState<Question[]>([]);
   const [zoomImage, setZoomImage] = useState("");
+  const [workspaceRole, setWorkspaceRole] = useState<WorkspaceRole>("viewer");
+  const [workspaceUser, setWorkspaceUser] = useState<WorkspaceUser | null>(null);
+  const [auditLogs, setAuditLogs] = useState<AuditLog[]>([]);
+  const [permissions, setPermissions] = useState<Permission[]>([]);
+  const [logsOpen, setLogsOpen] = useState(false);
+  const [permissionsOpen, setPermissionsOpen] = useState(false);
+  const [permissionEmail, setPermissionEmail] = useState("");
+  const [permissionName, setPermissionName] = useState("");
+  const [syncing, setSyncing] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
+  const canEditQuestions = workspaceRole === "admin" || workspaceRole === "editor";
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
-    if (saved) {
+    let active = true;
+    const loadWorkspace = async () => {
       try {
-        const incoming = JSON.parse(saved) as Partial<Question>[];
-        if (Array.isArray(incoming)) {
-          const normalized = incoming.map(normalizeQuestion).map((question) => ({
-            ...question,
-            image: refreshedSeedImages.get(question.code) || question.image,
-          }));
-          const storedCodes = new Set(normalized.map((question) => question.code));
-          const newLightingQuestions = seedQuestions.filter(
-            (question) => question.section === "L01" && !storedCodes.has(question.code),
-          );
-          setQuestions([...normalized, ...newLightingQuestions]);
+        const response = await fetch("/api/workspace", { cache: "no-store" });
+        if (!response.ok) throw new Error();
+        const data = (await response.json()) as {
+          user: WorkspaceUser | null;
+          role: WorkspaceRole;
+          snapshot: Partial<Question>[] | null;
+          overrides: Array<{ id: string; deleted: boolean; question: Partial<Question> | null }>;
+          logs: AuditLog[];
+          permissions: Permission[];
+        };
+        if (!active) return;
+
+        const base = Array.isArray(data.snapshot) ? data.snapshot.map(normalizeQuestion) : seedQuestions;
+        const merged = new Map(base.map((question) => [question.id, question]));
+        for (const override of data.overrides || []) {
+          if (override.deleted) merged.delete(override.id);
+          else if (override.question) merged.set(override.id, normalizeQuestion(override.question, merged.size));
         }
+        setQuestions([...merged.values()]);
+        setWorkspaceUser(data.user);
+        setWorkspaceRole(data.role || "viewer");
+        setAuditLogs(data.logs || []);
+        setPermissions(data.permissions || []);
       } catch {
-        localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(LEGACY_STORAGE_KEY);
+        if (active) setToast("共享题库暂时无法连接，当前为只读模式");
+      } finally {
+        if (active) setReady(true);
       }
-    }
-    setReady(true);
+    };
+    void loadWorkspace();
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
@@ -237,28 +287,64 @@ export default function Home() {
   };
 
   const startNew = () => {
+    if (!canEditQuestions) return flash("当前账号没有编辑权限");
     const item = blankQuestion();
     item.code = `NEW-${String(questions.length + 1).padStart(4, "0")}`;
     setEditor(item);
     setIsNew(true);
   };
 
-  const saveQuestion = (event: FormEvent) => {
+  const saveQuestion = async (event: FormEvent) => {
     event.preventDefault();
     if (!editor || !editor.title.trim() || !editor.answer.trim()) return;
+    if (!canEditQuestions) return flash("当前账号没有编辑权限");
     const saved = { ...editor, updatedAt: new Date().toISOString().slice(0, 10) };
+    const before = isNew ? null : questions.find((item) => item.id === saved.id) || null;
+    setSyncing(true);
+    try {
+      const response = await fetch("/api/questions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ operation: isNew ? "create" : "update", before, after: saved }),
+      });
+      const result = (await response.json()) as { error?: string; log?: AuditLog };
+      if (!response.ok) throw new Error(result.error || "保存失败");
+      if (result.log) setAuditLogs((current) => [result.log!, ...current].slice(0, 200));
+    } catch (error) {
+      flash(error instanceof Error ? error.message : "题目保存失败");
+      setSyncing(false);
+      return;
+    }
     setQuestions((current) =>
       isNew ? [saved, ...current] : current.map((item) => (item.id === saved.id ? saved : item)),
     );
     setEditor(null);
-    flash(isNew ? "新题已添加" : "题目已更新");
+    setSyncing(false);
+    flash(isNew ? "新题已添加并记录" : "题目已更新并记录");
   };
 
-  const deleteQuestion = () => {
+  const deleteQuestion = async () => {
     if (!editor || !window.confirm(`确定删除 ${editor.code} 吗？`)) return;
+    if (!canEditQuestions) return flash("当前账号没有编辑权限");
+    setSyncing(true);
+    try {
+      const response = await fetch("/api/questions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ operation: "delete", before: editor, after: null }),
+      });
+      const result = (await response.json()) as { error?: string; log?: AuditLog };
+      if (!response.ok) throw new Error(result.error || "删除失败");
+      if (result.log) setAuditLogs((current) => [result.log!, ...current].slice(0, 200));
+    } catch (error) {
+      flash(error instanceof Error ? error.message : "删除失败");
+      setSyncing(false);
+      return;
+    }
     setQuestions((current) => current.filter((item) => item.id !== editor.id));
     setEditor(null);
-    flash("题目已删除");
+    setSyncing(false);
+    flash("题目已删除并记录");
   };
 
   const exportJson = () => {
@@ -333,17 +419,60 @@ export default function Home() {
   const importJson = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
+    if (workspaceRole !== "admin") {
+      flash("只有管理员可以批量导入题库");
+      event.target.value = "";
+      return;
+    }
     try {
       const incoming = JSON.parse(await file.text()) as Partial<Question>[];
       if (!Array.isArray(incoming)) throw new Error();
       const normalized = incoming.map(normalizeQuestion);
+      setSyncing(true);
+      const response = await fetch("/api/import", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ questions: normalized }),
+      });
+      const result = (await response.json()) as { error?: string; log?: AuditLog };
+      if (!response.ok) throw new Error(result.error || "导入失败");
       setQuestions(normalized);
-      flash(`已导入 ${normalized.length} 道题`);
-    } catch {
-      flash("导入失败：请选择本工具导出的 JSON 题库文件");
+      if (result.log) setAuditLogs((current) => [result.log!, ...current].slice(0, 200));
+      flash(`已共享导入 ${normalized.length} 道题`);
+    } catch (error) {
+      flash(error instanceof Error ? error.message : "导入失败：请选择本工具导出的 JSON 题库文件");
     } finally {
+      setSyncing(false);
       event.target.value = "";
     }
+  };
+
+  const savePermission = async (email: string, displayName: string, role: "editor" | "viewer") => {
+    if (workspaceRole !== "admin") return flash("只有管理员可以修改成员权限");
+    setSyncing(true);
+    try {
+      const response = await fetch("/api/permissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, displayName, role }),
+      });
+      const result = (await response.json()) as { error?: string; permissions?: Permission[]; log?: AuditLog };
+      if (!response.ok) throw new Error(result.error || "权限保存失败");
+      setPermissions(result.permissions || []);
+      if (result.log) setAuditLogs((current) => [result.log!, ...current].slice(0, 200));
+      setPermissionEmail("");
+      setPermissionName("");
+      flash(role === "editor" ? "编辑权限已添加" : "已改为只读权限");
+    } catch (error) {
+      flash(error instanceof Error ? error.message : "权限保存失败");
+    } finally {
+      setSyncing(false);
+    }
+  };
+
+  const submitPermission = (event: FormEvent) => {
+    event.preventDefault();
+    void savePermission(permissionEmail, permissionName, "editor");
   };
 
   const buildQuiz = () => {
@@ -358,6 +487,7 @@ export default function Home() {
   };
 
   const openEditor = (question: Question) => {
+    if (!canEditQuestions) return flash("当前账号为只读权限");
     setEditor({ ...question, options: { ...question.options }, tags: [...question.tags] });
     setIsNew(false);
   };
@@ -369,7 +499,9 @@ export default function Home() {
         <nav aria-label="题库导航">
           <button className="nav-item active"><span>▦</span> 题目管理 <b>{questions.length}</b></button>
           <button className="nav-item" onClick={buildQuiz}><span>◇</span> 随机组卷</button>
-          <button className="nav-item" onClick={() => fileInput.current?.click()}><span>⇧</span> 导入批改包</button>
+          {workspaceUser && <button className="nav-item" onClick={() => setLogsOpen(true)}><span>≡</span> 修改记录 <b>{auditLogs.length}</b></button>}
+          {workspaceRole === "admin" && <button className="nav-item" onClick={() => setPermissionsOpen(true)}><span>♙</span> 编辑权限 <b>{permissions.length}</b></button>}
+          {workspaceRole === "admin" && <button className="nav-item" onClick={() => fileInput.current?.click()}><span>⇧</span> 导入批改包</button>}
           <button className="nav-item" onClick={exportJson}><span>⇩</span> 导出审核包</button>
         </nav>
         <div className="category-list">
@@ -381,20 +513,23 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div className="sidebar-note"><span className="pulse" /><div><strong>浏览器安全保存</strong><small>增删改内容保存在当前浏览器，可随时导出备份</small></div></div>
+        <div className="sidebar-note"><span className="pulse" /><div><strong>团队共享题库</strong><small>修改实时保存并记录操作人，未授权成员只能查看和导出</small></div></div>
       </aside>
 
       <section className="workspace">
         <header className="topbar">
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
-          <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="选择保存位置并导出 QuestionBank.json"><span>⇩</span> 选择位置并导出 JSON</button><button className="ghost" onClick={startNew}><span>+</span> 新增题目</button></div>
+          <div className="topbar-right">
+            <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
+            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="选择保存位置并导出 QuestionBank.json"><span>⇩</span> 选择位置并导出 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+          </div>
         </header>
 
         <section className="metrics" aria-label="题库统计">
           <article><span>总题数</span><strong>{questions.length}</strong><small>Excel 完整题库</small></article>
           <article><span>带图题</span><strong>{questions.filter((q) => q.image).length}</strong><small>题图已压缩接入</small></article>
           <article><span>章节数</span><strong>{sections.length}</strong><small>支持章节筛选</small></article>
-          <article><span>题目大类</span><strong>{categories.length}</strong><small>按编号前缀归类</small></article>
+          <article><span>修改记录</span><strong>{auditLogs.length}</strong><small>最近团队操作</small></article>
         </section>
 
         <section className="content-card">
@@ -414,7 +549,7 @@ export default function Home() {
             <div className="review-grid">
               {pagedQuestions.map((question) => (
                 <article className="review-card" key={question.id}>
-                  <header><div><code>{question.code}</code><span>{question.section}</span></div><button onClick={() => openEditor(question)}>编辑</button></header>
+                  <header><div><code>{question.code}</code><span>{question.section}</span></div>{canEditQuestions && <button onClick={() => openEditor(question)}>编辑</button>}</header>
                   <div className="miniapp-frame">
                     {question.image ? <button className="image-button" onClick={() => setZoomImage(question.image)} title="点击查看原图"><img src={question.image} alt={`${question.code} 题图`} loading="lazy" /></button> : <div className="no-image">本题无图片</div>}
                   </div>
@@ -428,14 +563,14 @@ export default function Home() {
               <thead><tr><th>编号</th><th>题干</th><th>题型</th><th>大类 / 章节</th><th>状态</th><th>更新日期</th><th /></tr></thead>
               <tbody>
                 {pagedQuestions.map((question) => (
-                  <tr key={question.id} onDoubleClick={() => openEditor(question)}>
+                  <tr key={question.id} onDoubleClick={() => { if (canEditQuestions) openEditor(question); }}>
                     <td><code>{question.code}</code></td>
                     <td className="question-cell"><div className="question-summary">{question.image && <img src={question.image} alt="" loading="lazy" />}<div><strong>{question.title}</strong><small>{question.tags.map((tag) => `#${tag}`).join("  ")}</small></div></div></td>
                     <td><span className="type-pill">{question.type}</span></td>
                     <td><span className="category-name">{question.category}</span><small className="section-name">{question.section}</small></td>
                     <td><span className={`status ${statusClass(question.status)}`}><i />{question.status}</span></td>
                     <td>{question.updatedAt}</td>
-                    <td><button className="edit-button" aria-label={`编辑 ${question.code}`} onClick={() => openEditor(question)}>编辑</button></td>
+                    <td>{canEditQuestions && <button className="edit-button" aria-label={`编辑 ${question.code}`} onClick={() => openEditor(question)}>编辑</button>}</td>
                   </tr>
                 ))}
               </tbody>
@@ -476,7 +611,7 @@ export default function Home() {
               <label><span>试题详解</span><textarea rows={5} value={editor.detailedExplanation} onChange={(e) => setEditor({ ...editor, detailedExplanation: e.target.value })} placeholder="完整说明考点和解题思路" /></label>
               <label><span>标签</span><input value={editor.tags.join("、")} onChange={(e) => setEditor({ ...editor, tags: e.target.value.split(/[,，、]/).map((tag) => tag.trim()).filter(Boolean) })} placeholder="多个标签用顿号分隔" /></label>
               <label><span>发布状态</span><select value={editor.status} onChange={(e) => setEditor({ ...editor, status: e.target.value as Status })}><option>草稿</option><option>待审核</option><option>已发布</option></select></label>
-              <div className="drawer-actions">{!isNew && <button type="button" className="danger" onClick={deleteQuestion}>删除</button>}<span /><button type="button" className="ghost" onClick={() => setEditor(null)}>取消</button><button className="primary" type="submit">保存题目</button></div>
+              <div className="drawer-actions">{!isNew && <button type="button" className="danger" onClick={deleteQuestion} disabled={syncing}>删除</button>}<span /><button type="button" className="ghost" onClick={() => setEditor(null)} disabled={syncing}>取消</button><button className="primary" type="submit" disabled={syncing}>{syncing ? "保存中…" : "保存题目"}</button></div>
             </form>
           </aside>
         </div>
@@ -491,6 +626,49 @@ export default function Home() {
               <div className="quiz-options">{OPTION_KEYS.filter((key) => item.options[key]).map((key) => <p key={key}><b>{key}</b>{item.options[key]}</p>)}</div>
               <details><summary>查看答案与解析</summary><p><strong>{answerText(item)}</strong><br />{item.explanation}<br />{item.detailedExplanation}</p></details></li>)}</ol>
             <button className="primary wide" onClick={() => window.print()}>打印 / 导出 PDF</button>
+          </section>
+        </div>
+      )}
+
+      {logsOpen && (
+        <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setLogsOpen(false); }}>
+          <section className="admin-modal" aria-label="修改记录">
+            <div className="drawer-head"><div><p>AUDIT LOG</p><h2>修改记录</h2></div><button onClick={() => setLogsOpen(false)} aria-label="关闭">×</button></div>
+            <div className="audit-summary"><strong>最近 {auditLogs.length} 条团队操作</strong><span>记录操作人、时间、题目编号与修改内容</span></div>
+            <div className="audit-list">
+              {auditLogs.map((log) => (
+                <article key={log.id}>
+                  <div className="audit-mark"><span>{log.action.slice(0, 1)}</span></div>
+                  <div><header><strong>{log.action}</strong>{log.question_code && <code>{log.question_code}</code>}<time>{formatLogTime(log.created_at)}</time></header><p>{log.summary}</p><small>{log.actor_name || log.actor_email} · {log.actor_email}</small></div>
+                </article>
+              ))}
+              {!auditLogs.length && <div className="empty compact"><strong>暂无修改记录</strong><span>成员首次修改题目后会显示在这里</span></div>}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {permissionsOpen && workspaceRole === "admin" && (
+        <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setPermissionsOpen(false); }}>
+          <section className="admin-modal permissions-modal" aria-label="编辑权限管理">
+            <div className="drawer-head"><div><p>ACCESS CONTROL</p><h2>编辑权限</h2></div><button onClick={() => setPermissionsOpen(false)} aria-label="关闭">×</button></div>
+            <div className="permission-intro"><strong>默认只读，按邮箱授权编辑</strong><p>管理员和编辑者可以新增、修改、删除题目；其他登录成员与访客只能查看和导出。</p></div>
+            <form className="permission-form" onSubmit={submitPermission}>
+              <label><span>成员邮箱</span><input type="email" value={permissionEmail} onChange={(event) => setPermissionEmail(event.target.value)} placeholder="name@company.com" required /></label>
+              <label><span>成员姓名（可选）</span><input value={permissionName} onChange={(event) => setPermissionName(event.target.value)} placeholder="便于识别" /></label>
+              <button className="primary" type="submit" disabled={syncing}>{syncing ? "保存中…" : "添加编辑者"}</button>
+            </form>
+            <div className="permission-list">
+              <div className="permission-list-head"><strong>已授权成员</strong><span>{permissions.length} 人</span></div>
+              {permissions.map((permission) => (
+                <article key={permission.email}>
+                  <span className="member-avatar">{(permission.display_name || permission.email).slice(0, 1).toUpperCase()}</span>
+                  <div><strong>{permission.display_name || permission.email}</strong><small>{permission.email}</small></div>
+                  <span className={`role-pill ${permission.role}`}>{permission.role === "admin" ? "管理员" : "编辑者"}</span>
+                  {permission.role !== "admin" && <button className="remove-access" type="button" disabled={syncing} onClick={() => void savePermission(permission.email, permission.display_name, "viewer")}>改为只读</button>}
+                </article>
+              ))}
+            </div>
           </section>
         </div>
       )}

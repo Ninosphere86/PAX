@@ -67,9 +67,18 @@ button { cursor: pointer; }
 
 .workspace { min-width: 0; padding: 34px 38px 44px; }
 .topbar { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
 .eyebrow { margin: 0 0 6px; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
 h1 { margin: 0; font: 700 34px/1.1 Georgia, "Songti SC", serif; letter-spacing: -.03em; }
 .top-actions { display: flex; gap: 10px; }
+.identity-chip { min-height: 42px; padding: 5px 9px 5px 6px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 7px; background: white; }
+.identity-chip > span { width: 29px; height: 29px; display: grid; place-items: center; border-radius: 50%; color: white; background: #78867d; font-size: 11px; font-weight: 800; }
+.identity-chip.role-admin > span { color: #173f2d; background: var(--lime); }
+.identity-chip.role-editor > span { background: var(--green); }
+.identity-chip strong, .identity-chip small { display: block; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.identity-chip strong { color: #344139; font-size: 10px; }
+.identity-chip small { margin-top: 2px; color: #849087; font-size: 8px; }
+.identity-chip a { margin-left: 4px; color: var(--green); font-size: 9px; font-weight: 800; text-decoration: none; }
 
 .primary, .ghost, .danger { min-height: 40px; padding: 0 17px; border-radius: 6px; font-weight: 700; border: 1px solid var(--line); }
 .primary { color: white; background: var(--green); border-color: var(--green); box-shadow: 0 6px 16px rgba(31,92,63,.18); }
@@ -79,6 +88,7 @@ h1 { margin: 0; font: 700 34px/1.1 Georgia, "Songti SC", serif; letter-spacing: 
 .ghost { color: #38443c; background: white; }
 .ghost:hover { border-color: #a8b5ab; }
 .danger { color: var(--red); background: #fff7f6; border-color: #ecc9c5; }
+button:disabled { cursor: default; opacity: .55; }
 
 .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
 .metrics article { position: relative; overflow: hidden; padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px rgba(21,32,24,.025); }
@@ -171,6 +181,39 @@ td code { color: var(--green); font: 700 10px/1 Consolas, monospace; }
 
 .modal-backdrop { display: grid; place-items: center; padding: 24px; }
 .quiz-modal { width: min(760px, 96vw); max-height: 90vh; overflow: auto; background: white; border-radius: 10px; box-shadow: 0 30px 100px rgba(0,0,0,.28); }
+.admin-modal { width: min(820px, 96vw); max-height: 88vh; overflow: hidden; display: flex; flex-direction: column; background: white; border-radius: 10px; box-shadow: 0 30px 100px rgba(0,0,0,.28); }
+.audit-summary { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); background: #f7f9f6; border-bottom: 1px solid var(--line); }
+.audit-summary strong { color: #344139; font-size: 11px; }
+.audit-summary span { font-size: 9px; }
+.audit-list { padding: 8px 24px 24px; overflow-y: auto; }
+.audit-list article { padding: 14px 0; display: grid; grid-template-columns: 32px 1fr; gap: 11px; border-bottom: 1px solid #edf0ec; }
+.audit-mark span { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; color: var(--green); background: #eaf2ec; font-size: 10px; font-weight: 800; }
+.audit-list article > div:last-child { min-width: 0; }
+.audit-list header { display: flex; align-items: center; gap: 8px; }
+.audit-list header strong { color: #263229; font-size: 11px; }
+.audit-list header code { padding: 3px 6px; color: var(--green); background: #eef3ef; border-radius: 3px; font-size: 9px; }
+.audit-list time { margin-left: auto; color: #8b958e; font-size: 9px; }
+.audit-list p { margin: 5px 0 4px; color: #47534b; font-size: 11px; line-height: 1.5; }
+.audit-list small { color: #909991; font-size: 9px; }
+.empty.compact { min-height: 160px; }
+.permission-intro { padding: 18px 24px 14px; }
+.permission-intro strong { color: #263229; font-size: 12px; }
+.permission-intro p { margin: 6px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.permission-form { margin: 0 24px 12px; padding: 14px; display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 10px; align-items: end; border: 1px solid var(--line); border-radius: 7px; background: #f7f9f6; }
+.permission-form label { display: grid; gap: 6px; color: #59665d; font-size: 9px; font-weight: 700; }
+.permission-form input { height: 38px; padding: 0 10px; border: 1px solid #d5ddd6; border-radius: 5px; outline: 0; background: white; font-size: 11px; }
+.permission-list { padding: 0 24px 24px; overflow-y: auto; }
+.permission-list-head { padding: 10px 0 7px; display: flex; justify-content: space-between; color: #647067; font-size: 10px; }
+.permission-list article { min-height: 58px; display: grid; grid-template-columns: 34px minmax(0, 1fr) auto auto; align-items: center; gap: 10px; border-bottom: 1px solid #edf0ec; }
+.member-avatar { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--green); font-size: 10px; font-weight: 800; }
+.permission-list article div { min-width: 0; }
+.permission-list article div strong, .permission-list article div small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.permission-list article div strong { color: #2c3830; font-size: 11px; }
+.permission-list article div small { margin-top: 3px; color: #8a958d; font-size: 9px; }
+.role-pill { padding: 4px 7px; border-radius: 10px; color: #536158; background: #edf0ed; font-size: 8px; font-weight: 800; }
+.role-pill.admin { color: #5d4811; background: #f5e8af; }
+.role-pill.editor { color: #2d6246; background: #e5f1e9; }
+.remove-access { border: 0; color: var(--red); background: transparent; font-size: 9px; font-weight: 700; }
 .quiz-summary { margin: 20px 26px 8px; color: var(--muted); font-size: 12px; }
 .quiz-modal ol { margin: 0; padding: 10px 38px 24px 58px; }
 .quiz-modal li { padding: 15px 5px 15px 8px; border-bottom: 1px solid var(--line); }
@@ -209,6 +252,8 @@ details p { padding: 9px 11px; background: #f4f7f3; border-left: 3px solid var(-
   .sidebar-note { display: none; }
   .workspace { padding: 22px 14px 34px; }
   .topbar { align-items: flex-start; }
+  .topbar-right { align-items: flex-end; flex-direction: column; }
+  .identity-chip { min-height: 36px; }
   .top-actions .ghost { display: none; }
   .export-final { min-height: 42px; padding-inline: 13px; }
   h1 { font-size: 28px; }
@@ -220,6 +265,10 @@ details p { padding: 9px 11px; background: #f4f7f3; border-left: 3px solid var(-
   .field-grid, .option-grid { grid-template-columns: 1fr; }
   .view-toolbar { align-items: flex-start; flex-direction: column; }
   .review-grid { grid-template-columns: 1fr; padding: 10px; }
+  .permission-form { grid-template-columns: 1fr; }
+  .permission-list article { grid-template-columns: 34px minmax(0, 1fr) auto; }
+  .permission-list .remove-access { grid-column: 2 / -1; justify-self: start; padding: 0 0 9px; }
+  .audit-summary { align-items: flex-start; flex-direction: column; }
 }
 
 @media print {
