@@ -67,6 +67,7 @@ const CATEGORY_RENAMES: Record<string, string> = {
   "T 类题目": "专项题型类-T",
 };
 const seedQuestions = sourceQuestions as Question[];
+const APPEND_ONLY_SEED_CATEGORIES = new Set(["科四场景类-C", "科四距离类-D"]);
 
 const blankQuestion = (): Question => ({
   id: crypto.randomUUID(),
@@ -225,7 +226,7 @@ export default function Home() {
             ...(data.overrides || []).map((override) => override.question?.code || ""),
           ]);
           for (const seed of seedQuestions) {
-            if (seed.category === "科四场景类-C" && !snapshotCodes.has(seed.code)) base.push(seed);
+            if (APPEND_ONLY_SEED_CATEGORIES.has(seed.category) && !snapshotCodes.has(seed.code)) base.push(seed);
           }
         }
         const merged = new Map(base.map((question) => [question.id, question]));
