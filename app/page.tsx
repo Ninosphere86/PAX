@@ -39,8 +39,8 @@ type Permission = {
 type ImageExportManifest = {
   filename: string;
   imageCount: number;
-  totalSize: number;
-  parts: Array<{ name: string; size: number }>;
+  totalImageBytes: number;
+  entries: Array<{ name: string; source: string; size: number; crc32: number }>;
 };
 
 type SaveFileWindow = Window & {
@@ -212,6 +212,49 @@ function buildFinalQuestionBank(questions: Question[]) {
     }),
     "公共解析库": [],
   };
+}
+
+function zipLocalHeader(entry: ImageExportManifest["entries"][number]) {
+  const filename = new TextEncoder().encode(entry.name);
+  const header = new Uint8Array(30 + filename.length);
+  const view = new DataView(header.buffer);
+  view.setUint32(0, 0x04034b50, true);
+  view.setUint16(4, 20, true);
+  view.setUint16(6, 0x0800, true);
+  view.setUint32(14, entry.crc32, true);
+  view.setUint32(18, entry.size, true);
+  view.setUint32(22, entry.size, true);
+  view.setUint16(26, filename.length, true);
+  header.set(filename, 30);
+  return header;
+}
+
+function zipCentralHeader(entry: ImageExportManifest["entries"][number], offset: number) {
+  const filename = new TextEncoder().encode(entry.name);
+  const header = new Uint8Array(46 + filename.length);
+  const view = new DataView(header.buffer);
+  view.setUint32(0, 0x02014b50, true);
+  view.setUint16(4, 20, true);
+  view.setUint16(6, 20, true);
+  view.setUint16(8, 0x0800, true);
+  view.setUint32(16, entry.crc32, true);
+  view.setUint32(20, entry.size, true);
+  view.setUint32(24, entry.size, true);
+  view.setUint16(28, filename.length, true);
+  view.setUint32(42, offset, true);
+  header.set(filename, 46);
+  return header;
+}
+
+function zipEndRecord(count: number, centralSize: number, centralOffset: number) {
+  const end = new Uint8Array(22);
+  const view = new DataView(end.buffer);
+  view.setUint32(0, 0x06054b50, true);
+  view.setUint16(8, count, true);
+  view.setUint16(10, count, true);
+  view.setUint32(12, centralSize, true);
+  view.setUint32(16, centralOffset, true);
+  return end;
 }
 
 function formatLogTime(value: string) {
@@ -448,55 +491,44 @@ export default function Home() {
     setExportingImages(true);
     try {
       const saveWindow = window as SaveFileWindow;
-      const loadManifest = async () => {
-        const response = await fetch("/exports/QuestionBankImages.manifest.json");
-        if (!response.ok) throw new Error("图片导出清单不可用");
-        return response.json() as Promise<ImageExportManifest>;
-      };
-      let imageCount = 0;
+      if (!saveWindow.showSaveFilePicker) throw new Error("当前浏览器不支持安全流式导出，请使用最新版 Chrome 或 Edge");
+      const handle = await saveWindow.showSaveFilePicker({
+        suggestedName: "QuestionBankImages.zip",
+        types: [{ description: "ZIP 压缩包", accept: { "application/zip": [".zip"] } }],
+      });
+      const writable = await handle.createWritable();
+      try {
+        const manifestResponse = await fetch("/exports/QuestionBankImages.manifest.json");
+        if (!manifestResponse.ok) throw new Error("图片导出清单不可用");
+        const manifest = (await manifestResponse.json()) as ImageExportManifest;
+        const centralHeaders: Uint8Array[] = [];
+        let offset = 0;
 
-      if (saveWindow.showSaveFilePicker) {
-        const handle = await saveWindow.showSaveFilePicker({
-          suggestedName: "QuestionBankImages.zip",
-          types: [{ description: "ZIP 压缩包", accept: { "application/zip": [".zip"] } }],
-        });
-        const writable = await handle.createWritable();
-        try {
-          const manifest = await loadManifest();
-          imageCount = manifest.imageCount;
-          for (const [index, part] of manifest.parts.entries()) {
-            flash(`正在导出图片 ${index + 1} / ${manifest.parts.length}`);
-            const response = await fetch(`/exports/${part.name}`);
-            if (!response.ok || !response.body) throw new Error(`图片分片 ${index + 1} 下载失败`);
-            const reader = response.body.getReader();
-            while (true) {
-              const { done, value } = await reader.read();
-              if (done) break;
-              await writable.write(value);
-            }
-          }
-          await writable.close();
-        } catch (error) {
-          await writable.abort();
-          throw error;
+        for (const [index, entry] of manifest.entries.entries()) {
+          const header = zipLocalHeader(entry);
+          centralHeaders.push(zipCentralHeader(entry, offset));
+          await writable.write(header);
+          const response = await fetch(entry.source);
+          if (!response.ok) throw new Error(`${entry.name} 下载失败`);
+          const data = new Uint8Array(await response.arrayBuffer());
+          if (data.byteLength !== entry.size) throw new Error(`${entry.name} 文件大小校验失败`);
+          await writable.write(data);
+          offset += header.byteLength + data.byteLength;
+          if ((index + 1) % 50 === 0) setToast(`正在导出图片 ${index + 1} / ${manifest.imageCount}`);
         }
-      } else {
-        const manifest = await loadManifest();
-        imageCount = manifest.imageCount;
-        const parts = await Promise.all(manifest.parts.map(async (part) => {
-          const response = await fetch(`/exports/${part.name}`);
-          if (!response.ok) throw new Error("图片分片下载失败");
-          return response.arrayBuffer();
-        }));
-        const blob = new Blob(parts, { type: "application/zip" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = manifest.filename;
-        link.click();
-        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+        const centralOffset = offset;
+        for (const header of centralHeaders) {
+          await writable.write(header);
+          offset += header.byteLength;
+        }
+        await writable.write(zipEndRecord(manifest.imageCount, offset - centralOffset, centralOffset));
+        await writable.close();
+        flash(`全部图片已导出，共 ${manifest.imageCount} 张`);
+      } catch (error) {
+        await writable.abort();
+        throw error;
       }
-      flash(`全部图片已导出，共 ${imageCount} 张`);
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") flash("已取消图片导出");
       else flash(error instanceof Error ? error.message : "图片导出失败，请刷新后重试");
