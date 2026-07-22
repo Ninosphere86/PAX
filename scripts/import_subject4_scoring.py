@@ -108,8 +108,8 @@ def build_records(questions, image_dir):
     records = []
     for question in questions:
         number = question["number"]
-        code = f"C04_{number:02d}"
-        image_name = f"c04-{number:02d}-v2.webp"
+        code = f"C03_{number + 5:02d}"
+        image_name = f"c03-{number + 5:02d}-v2.webp"
         if not (image_dir / image_name).is_file():
             raise FileNotFoundError(f"缺少重制题图：{image_name}")
         records.append(
@@ -121,12 +121,12 @@ def build_records(questions, image_dir):
                 "options": {key: question["options"].get(key, "") for key in "ABCD"},
                 "type": question["type"],
                 "category": "科四场景类-C",
-                "section": "C04",
+                "section": "C03",
                 "difficulty": "基础",
                 "answer": question["answer"],
                 "explanation": question["explanation"],
                 "detailedExplanation": question["detailedExplanation"],
-                "tags": ["科四记分", "C04"],
+                "tags": ["科四记分", "C03"],
                 "status": "已发布",
                 "updatedAt": "2026-07-22",
             }
@@ -151,9 +151,9 @@ def main():
         manifest = [
             {
                 "number": question["number"],
-                "code": f"C04_{question['number']:02d}",
+                "code": f"C03_{question['number'] + 5:02d}",
                 "prompt": build_prompt(question),
-                "output_image": f"public/question-images/c04-{question['number']:02d}-v2.webp",
+                "output_image": f"public/question-images/c03-{question['number'] + 5:02d}-v2.webp",
             }
             for question in questions
         ]
@@ -180,8 +180,8 @@ def main():
         bank = [
             item
             for item in bank
-            if item.get("section") != "C04"
-            and not item.get("code", "").startswith(("C04_", "L02_"))
+            if item.get("id") not in {"subject4-scoring-C04_01", "subject4-scoring-C03_06"}
+            and item.get("code") not in {"C04_01", "C03_06", "L02_01"}
         ]
         bank.extend(records)
         bank_path.write_text(
