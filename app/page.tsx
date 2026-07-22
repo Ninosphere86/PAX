@@ -26,10 +26,20 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v9";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v8";
+const STORAGE_KEY = "pingan-question-bank-v10";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v9";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
+const CATEGORY_RENAMES: Record<string, string> = {
+  "B 类题目": "基础类-B",
+  "S 类题目": "信号标志类-S",
+  "V 类题目": "车辆设备类-V",
+  "P 类题目": "违法处罚类-P",
+  "M 类题目": "登记管理类-M",
+  "R 类题目": "道路通行类-R",
+  "E 类题目": "应急处理类-E",
+  "T 类题目": "专项题型类-T",
+};
 const seedQuestions = sourceQuestions as Question[];
 const refreshedSeedImages = new Map(
   seedQuestions
@@ -44,7 +54,7 @@ const blankQuestion = (): Question => ({
   image: "",
   options: { A: "", B: "", C: "", D: "" },
   type: "单选题",
-  category: "B 类题目",
+  category: "基础类-B",
   section: "自建",
   difficulty: "基础",
   answer: "",
@@ -72,7 +82,7 @@ function normalizeQuestion(item: Partial<Question>, index: number): Question {
     code: item.code || `IMP-${String(index + 1).padStart(4, "0")}`,
     image: item.image || "",
     options: { ...fallback.options, ...(item.options || {}) },
-    category: item.category || "自建题目",
+    category: CATEGORY_RENAMES[item.category || ""] || item.category || "自建题目",
     section: item.section || "自建",
     explanation: item.explanation || "",
     detailedExplanation: item.detailedExplanation || "",
