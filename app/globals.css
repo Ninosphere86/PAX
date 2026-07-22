@@ -75,6 +75,7 @@ h1 { margin: 0; font: 700 34px/1.1 Georgia, "Songti SC", serif; letter-spacing: 
 .primary { color: white; background: var(--green); border-color: var(--green); box-shadow: 0 6px 16px rgba(31,92,63,.18); }
 .primary:hover { background: var(--green-deep); }
 .primary span { margin-right: 5px; font-size: 19px; line-height: 1; }
+.export-final { white-space: nowrap; background: #174f36; box-shadow: 0 7px 20px rgba(31,92,63,.24); }
 .ghost { color: #38443c; background: white; }
 .ghost:hover { border-color: #a8b5ab; }
 .danger { color: var(--red); background: #fff7f6; border-color: #ecc9c5; }
@@ -209,6 +210,7 @@ details p { padding: 9px 11px; background: #f4f7f3; border-left: 3px solid var(-
   .workspace { padding: 22px 14px 34px; }
   .topbar { align-items: flex-start; }
   .top-actions .ghost { display: none; }
+  .export-final { min-height: 42px; padding-inline: 13px; }
   h1 { font-size: 28px; }
   .metrics { grid-template-columns: 1fr 1fr; gap: 8px; }
   .metrics article { padding: 14px; }

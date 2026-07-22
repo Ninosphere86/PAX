@@ -97,6 +97,43 @@ function answerText(question: Question) {
   return labels.length ? `${question.answer} · ${labels.join("；")}` : question.answer;
 }
 
+function finalQuestionType(type: QuestionType) {
+  if (type === "多选题") return "多选";
+  if (type === "简答题") return "简答";
+  return "单选";
+}
+
+function finalImageName(question: Question) {
+  if (!question.image) return "";
+  const path = question.image.split(/[?#]/)[0];
+  const extension = path.match(/\.(jpe?g|png|webp)$/i)?.[1]?.toLowerCase() || "png";
+  return `${question.code}.${extension === "jpg" ? "jpeg" : extension}`;
+}
+
+function buildFinalQuestionBank(questions: Question[]) {
+  return {
+    "题库": questions.map((question) => {
+      const correctKeys = new Set(question.answer.toUpperCase().match(/[A-D]/g) || []);
+      return {
+        "题目ID": question.code,
+        "题目内容": {
+          "文本": question.title,
+          "图片": finalImageName(question),
+          "简析": question.explanation,
+        },
+        "题目类型": finalQuestionType(question.type),
+        "题目选项": OPTION_KEYS.filter((key) => question.options[key].trim()).map((key) => ({
+          "文本": question.options[key],
+          "是否正确": correctKeys.has(key),
+        })),
+        "题目详解": question.detailedExplanation,
+        "题目解析库": [],
+      };
+    }),
+    "公共解析库": [],
+  };
+}
+
 export default function Home() {
   const [questions, setQuestions] = useState<Question[]>(seedQuestions);
   const [ready, setReady] = useState(false);
@@ -234,6 +271,17 @@ export default function Home() {
     flash("审核包已导出，可交给 Codex 批量修改");
   };
 
+  const exportFinalJson = () => {
+    const finalQuestionBank = buildFinalQuestionBank(questions);
+    const blob = new Blob([JSON.stringify(finalQuestionBank, null, 2)], { type: "application/json;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "QuestionBank.json";
+    link.click();
+    URL.revokeObjectURL(link.href);
+    flash(`最终 JSON 已导出，共 ${questions.length} 道题`);
+  };
+
   const exportCsv = () => {
     const headers = ["编号", "题干", "图片", "选项A", "选项B", "选项C", "选项D", "题型", "分类", "章节", "难度", "答案", "简析", "试题详解", "标签", "状态"];
     const rows = questions.map((item) => [
@@ -307,7 +355,7 @@ export default function Home() {
       <section className="workspace">
         <header className="topbar">
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
-          <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary" onClick={startNew}><span>+</span> 新增题目</button></div>
+          <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson}><span>⇩</span> 一键导出最终 JSON</button><button className="ghost" onClick={startNew}><span>+</span> 新增题目</button></div>
         </header>
 
         <section className="metrics" aria-label="题库统计">
