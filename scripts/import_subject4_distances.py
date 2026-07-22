@@ -108,26 +108,27 @@ def build_records(questions, image_dir):
     records = []
     for question in questions:
         number = question["number"]
-        code = f"D02_{number:02d}"
+        code = f"C02_{number:02d}"
         image_name = f"d02-{number:02d}-v2.webp"
         if not (image_dir / image_name).is_file():
             raise FileNotFoundError(f"缺少重制题图：{image_name}")
 
         records.append(
             {
-                "id": f"subject4-distances-{code}",
+                # Keep the historical ID stable so existing shared overrides still apply.
+                "id": f"subject4-distances-D02_{number:02d}",
                 "code": code,
                 "title": question["title"],
                 "image": f"/question-images/{image_name}",
                 "options": {key: question["options"].get(key, "") for key in "ABCD"},
                 "type": question["type"],
-                "category": "科四距离类-D",
-                "section": "D02",
+                "category": "科四场景类-C",
+                "section": "C02",
                 "difficulty": "基础",
                 "answer": question["answer"],
                 "explanation": EXPLANATION_FIXES.get(number, question["explanation"]),
                 "detailedExplanation": question["detailedExplanation"].replace("雨、雪、雾灯特殊天气", "雨、雪、雾等特殊天气"),
-                "tags": ["科四距离", "D02"],
+                "tags": ["科四距离", "C02"],
                 "status": "已发布",
                 "updatedAt": "2026-07-22",
             }
@@ -164,7 +165,8 @@ def main():
         bank = [
             item
             for item in bank
-            if item.get("section") != "D02" and not item.get("code", "").startswith("D02_")
+            if item.get("section") not in {"D02", "C02"}
+            and not item.get("code", "").startswith(("D02_", "C02_"))
         ]
         bank.extend(records)
         bank_path.write_text(

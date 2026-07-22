@@ -69,8 +69,6 @@ const CATEGORY_RENAMES: Record<string, string> = {
 const seedQuestions = sourceQuestions as Question[];
 const APPEND_ONLY_SEED_CATEGORIES = new Set([
   "科四场景类-C",
-  "科四距离类-D",
-  "科四酒驾类-A",
   "科四标识类-I",
 ]);
 
@@ -113,20 +111,46 @@ function statusClass(status: Status) {
   return status === "已发布" ? "published" : status === "待审核" ? "review" : "draft";
 }
 
+function normalizeSubject4SceneGroup(item: Partial<Question>) {
+  const category = item.category || "";
+  const section = item.section || "";
+  const code = item.code || "";
+  const tags = Array.isArray(item.tags) ? item.tags : [];
+
+  if (category === "科四酒驾类-A" || item.id?.startsWith("subject4-drunk-driving-")) {
+    return {
+      category: "科四场景类-C",
+      section: "C01",
+      code: code.replace(/^A01_/, "C01_"),
+      tags: tags.map((tag) => (tag === "A01" ? "C01" : tag)),
+    };
+  }
+  if (category === "科四距离类-D" || item.id?.startsWith("subject4-distances-")) {
+    return {
+      category: "科四场景类-C",
+      section: "C02",
+      code: code.replace(/^D02_/, "C02_"),
+      tags: tags.map((tag) => (tag === "D02" ? "C02" : tag)),
+    };
+  }
+  return { category, section, code, tags };
+}
+
 function normalizeQuestion(item: Partial<Question>, index: number): Question {
   const fallback = blankQuestion();
+  const sceneGroup = normalizeSubject4SceneGroup(item);
   return {
     ...fallback,
     ...item,
     id: item.id || crypto.randomUUID(),
-    code: item.code || `IMP-${String(index + 1).padStart(4, "0")}`,
+    code: sceneGroup.code || `IMP-${String(index + 1).padStart(4, "0")}`,
     image: item.image || "",
     options: { ...fallback.options, ...(item.options || {}) },
-    category: CATEGORY_RENAMES[item.category || ""] || item.category || "自建题目",
-    section: item.section || "自建",
+    category: CATEGORY_RENAMES[sceneGroup.category] || sceneGroup.category || "自建题目",
+    section: sceneGroup.section || "自建",
     explanation: item.explanation || "",
     detailedExplanation: item.detailedExplanation || "",
-    tags: Array.isArray(item.tags) ? item.tags : [],
+    tags: sceneGroup.tags,
     updatedAt: item.updatedAt || new Date().toISOString().slice(0, 10),
   };
 }
