@@ -67,7 +67,7 @@ const CATEGORY_RENAMES: Record<string, string> = {
   "T 类题目": "专项题型类-T",
 };
 const seedQuestions = sourceQuestions as Question[];
-const APPEND_ONLY_SEED_CATEGORIES = new Set(["科四场景类-C", "科四距离类-D"]);
+const APPEND_ONLY_SEED_CATEGORIES = new Set(["科四场景类-C", "科四距离类-D", "科四酒驾类-A"]);
 
 const blankQuestion = (): Question => ({
   id: crypto.randomUUID(),
