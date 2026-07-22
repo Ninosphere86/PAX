@@ -36,6 +36,20 @@ type Permission = {
   updated_at: string;
 };
 
+type ImageExportManifest = {
+  filename: string;
+  imageCount: number;
+  totalSize: number;
+  parts: Array<{ name: string; size: number }>;
+};
+
+type SaveFileWindow = Window & {
+  showSaveFilePicker?: (options: {
+    suggestedName: string;
+    types: Array<{ description: string; accept: Record<string, string[]> }>;
+  }) => Promise<{ createWritable: () => Promise<{ write: (data: Uint8Array) => Promise<void>; close: () => Promise<void>; abort: () => Promise<void> }> }>;
+};
+
 type Question = {
   id: string;
   code: string;
@@ -231,6 +245,7 @@ export default function Home() {
   const [permissionEmail, setPermissionEmail] = useState("");
   const [permissionName, setPermissionName] = useState("");
   const [syncing, setSyncing] = useState(false);
+  const [exportingImages, setExportingImages] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const canEditQuestions = workspaceRole === "admin" || workspaceRole === "editor";
 
@@ -428,6 +443,68 @@ export default function Home() {
     }
   };
 
+  const exportAllImages = async () => {
+    if (exportingImages) return;
+    setExportingImages(true);
+    try {
+      const saveWindow = window as SaveFileWindow;
+      const loadManifest = async () => {
+        const response = await fetch("/exports/QuestionBankImages.manifest.json");
+        if (!response.ok) throw new Error("图片导出清单不可用");
+        return response.json() as Promise<ImageExportManifest>;
+      };
+      let imageCount = 0;
+
+      if (saveWindow.showSaveFilePicker) {
+        const handle = await saveWindow.showSaveFilePicker({
+          suggestedName: "QuestionBankImages.zip",
+          types: [{ description: "ZIP 压缩包", accept: { "application/zip": [".zip"] } }],
+        });
+        const writable = await handle.createWritable();
+        try {
+          const manifest = await loadManifest();
+          imageCount = manifest.imageCount;
+          for (const [index, part] of manifest.parts.entries()) {
+            flash(`正在导出图片 ${index + 1} / ${manifest.parts.length}`);
+            const response = await fetch(`/exports/${part.name}`);
+            if (!response.ok || !response.body) throw new Error(`图片分片 ${index + 1} 下载失败`);
+            const reader = response.body.getReader();
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              await writable.write(value);
+            }
+          }
+          await writable.close();
+        } catch (error) {
+          await writable.abort();
+          throw error;
+        }
+      } else {
+        const manifest = await loadManifest();
+        imageCount = manifest.imageCount;
+        const parts = await Promise.all(manifest.parts.map(async (part) => {
+          const response = await fetch(`/exports/${part.name}`);
+          if (!response.ok) throw new Error("图片分片下载失败");
+          return response.arrayBuffer();
+        }));
+        const blob = new Blob(parts, { type: "application/zip" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = manifest.filename;
+        link.click();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+      flash(`全部图片已导出，共 ${imageCount} 张`);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") flash("已取消图片导出");
+      else flash(error instanceof Error ? error.message : "图片导出失败，请刷新后重试");
+    } finally {
+      setExportingImages(false);
+    }
+  };
+
   const exportCsv = () => {
     const headers = ["编号", "题干", "图片", "选项A", "选项B", "选项C", "选项D", "题型", "分类", "章节", "难度", "答案", "简析", "试题详解", "标签", "状态"];
     const rows = questions.map((item) => [
@@ -553,7 +630,7 @@ export default function Home() {
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
           <div className="topbar-right">
             <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
-            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><a className="ghost image-export" href="/exports/QuestionBankImages.zip" download="QuestionBankImages.zip" onClick={() => flash("图片压缩包开始下载，共 1922 张题图")} title="下载与最终 JSON 图片字段一一对应的压缩包">导出全部图片 ZIP</a><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="ghost image-export" onClick={() => void exportAllImages()} disabled={exportingImages} title="流式生成与最终 JSON 图片字段一一对应的压缩包">{exportingImages ? "正在导出图片…" : "导出全部图片 ZIP"}</button><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
           </div>
         </header>
 

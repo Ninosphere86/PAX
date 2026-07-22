@@ -1,4 +1,4 @@
-import { closeSync, existsSync, mkdirSync, openSync, readFileSync, statSync, writeSync } from "node:fs";
+import { closeSync, existsSync, mkdirSync, openSync, readFileSync, readdirSync, statSync, unlinkSync, writeFileSync, writeSync } from "node:fs";
 import { dirname, extname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,6 +6,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const questions = JSON.parse(readFileSync(join(root, "app/question-bank.json"), "utf8"));
 const output = join(root, "public/exports/QuestionBankImages.zip");
 const publicRoot = join(root, "public");
+const partSize = 24 * 1024 * 1024;
 
 const crcTable = new Uint32Array(256);
 for (let index = 0; index < 256; index += 1) {
@@ -119,4 +120,20 @@ try {
 }
 
 const megabytes = (statSync(output).size / 1024 / 1024).toFixed(1);
-console.log(`Wrote public/exports/QuestionBankImages.zip (${count} images, ${megabytes} MB)`);
+const archive = readFileSync(output);
+for (const existing of readdirSync(dirname(output))) {
+  if (existing.startsWith("QuestionBankImages.zip.part")) unlinkSync(join(dirname(output), existing));
+}
+const parts = [];
+for (let offset = 0, index = 1; offset < archive.length; offset += partSize, index += 1) {
+  const name = `QuestionBankImages.zip.part${String(index).padStart(2, "0")}`;
+  const data = archive.subarray(offset, Math.min(offset + partSize, archive.length));
+  writeFileSync(join(dirname(output), name), data);
+  parts.push({ name, size: data.length });
+}
+writeFileSync(
+  join(dirname(output), "QuestionBankImages.manifest.json"),
+  JSON.stringify({ filename: "QuestionBankImages.zip", imageCount: count, totalSize: archive.length, parts }, null, 2) + "\n",
+);
+unlinkSync(output);
+console.log(`Wrote ${parts.length} streamed ZIP parts (${count} images, ${megabytes} MB total)`);
