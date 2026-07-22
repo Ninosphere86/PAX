@@ -495,7 +495,7 @@ export default function Home() {
   return (
     <main className="app-shell">
       <aside className="sidebar">
-        <div className="brand"><img className="brand-logo" src="/pingan-line-plan-logo-reverse.svg" alt="平安线计划" /><div className="brand-copy"><strong>题库</strong><small>QUESTION BANK</small></div></div>
+        <div className="brand"><img className="brand-logo" src="/pingan-line-plan-logo-reverse.svg" alt="平安线计划" /><div className="brand-copy"><strong>题库</strong><small>QUIZ BANK</small></div></div>
         <nav aria-label="题库导航">
           <button className="nav-item active"><span>▦</span> 题目管理 <b>{questions.length}</b></button>
           <button className="nav-item" onClick={buildQuiz}><span>◇</span> 随机组卷</button>
