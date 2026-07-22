@@ -2,6 +2,7 @@
 
 import { ChangeEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import sourceQuestions from "./question-bank.json";
+import featuredSelection from "./featured-500.json";
 
 type QuestionType = "单选题" | "多选题" | "判断题" | "简答题";
 type Difficulty = "基础" | "进阶" | "困难";
@@ -55,6 +56,7 @@ type Question = {
 
 const STORAGE_KEY = "pingan-question-bank-v10";
 const PAGE_SIZE = 50;
+const FEATURED_PAGE_SIZE = 20;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const CATEGORY_RENAMES: Record<string, string> = {
   "B 类题目": "基础类-B",
@@ -218,6 +220,7 @@ export default function Home() {
   const [isNew, setIsNew] = useState(false);
   const [toast, setToast] = useState("");
   const [quiz, setQuiz] = useState<Question[]>([]);
+  const [quizPage, setQuizPage] = useState(1);
   const [zoomImage, setZoomImage] = useState("");
   const [workspaceRole, setWorkspaceRole] = useState<WorkspaceRole>("viewer");
   const [workspaceUser, setWorkspaceUser] = useState<WorkspaceUser | null>(null);
@@ -325,6 +328,9 @@ export default function Home() {
   const totalPages = Math.max(1, Math.ceil(visibleQuestions.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
   const pagedQuestions = visibleQuestions.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const quizTotalPages = Math.max(1, Math.ceil(quiz.length / FEATURED_PAGE_SIZE));
+  const currentQuizPage = Math.min(quizPage, quizTotalPages);
+  const pagedQuiz = quiz.slice((currentQuizPage - 1) * FEATURED_PAGE_SIZE, currentQuizPage * FEATURED_PAGE_SIZE);
 
   const flash = (message: string) => {
     setToast(message);
@@ -497,15 +503,19 @@ export default function Home() {
     void savePermission(permissionEmail, permissionName, "editor");
   };
 
-  const buildQuiz = () => {
-    const source = visibleQuestions.filter((item) => item.status === "已发布");
-    const shuffled = [...source];
-    for (let index = shuffled.length - 1; index > 0; index -= 1) {
-      const pick = Math.floor(Math.random() * (index + 1));
-      [shuffled[index], shuffled[pick]] = [shuffled[pick], shuffled[index]];
-    }
-    setQuiz(shuffled.slice(0, Math.min(10, shuffled.length)));
-    if (!shuffled.length) flash("当前筛选结果中没有已发布题目");
+  const openFeatured500 = () => {
+    const byCode = new Map(questions.map((item) => [item.code, item]));
+    const featured = featuredSelection.codes
+      .map((code) => byCode.get(code))
+      .filter((item): item is Question => Boolean(item && item.status === "已发布"));
+    const included = new Set(featured.map((item) => item.code));
+    const fallback = questions
+      .filter((item) => item.status === "已发布" && !item.category.startsWith("科四") && !included.has(item.code))
+      .sort((left, right) => left.code.localeCompare(right.code, "zh-CN"));
+    const selection = [...featured, ...fallback].slice(0, 500);
+    setQuiz(selection);
+    setQuizPage(1);
+    if (selection.length < 500) flash(`当前科目一已发布题目不足，已显示 ${selection.length} 道`);
   };
 
   const openEditor = (question: Question) => {
@@ -520,7 +530,7 @@ export default function Home() {
         <div className="brand"><img className="brand-logo" src="/pingan-line-plan-logo-reverse.svg" alt="平安线计划" /><div className="brand-copy"><strong>题库</strong><small>QUIZ BANK</small></div></div>
         <nav aria-label="题库导航">
           <button className="nav-item active"><span>▦</span> 题目管理 <b>{questions.length}</b></button>
-          <button className="nav-item" onClick={buildQuiz}><span>◇</span> 随机组卷</button>
+          <button className="nav-item" onClick={openFeatured500}><span>◇</span> 精选500 <b>500</b></button>
           {workspaceUser && <button className="nav-item" onClick={() => setLogsOpen(true)}><span>≡</span> 修改记录 <b>{auditLogs.length}</b></button>}
           {workspaceRole === "admin" && <button className="nav-item" onClick={() => setPermissionsOpen(true)}><span>♙</span> 编辑权限 <b>{permissions.length}</b></button>}
           {workspaceRole === "admin" && <button className="nav-item" onClick={() => fileInput.current?.click()}><span>⇧</span> 导入批改包</button>}
@@ -543,7 +553,7 @@ export default function Home() {
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
           <div className="topbar-right">
             <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
-            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><a className="ghost image-export" href="/exports/QuestionBankImages.zip" download="QuestionBankImages.zip" onClick={() => flash("图片压缩包开始下载，共 1922 张题图")} title="下载与最终 JSON 图片字段一一对应的压缩包">导出全部图片 ZIP</a><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
           </div>
         </header>
 
@@ -642,12 +652,12 @@ export default function Home() {
       {quiz.length > 0 && (
         <div className="modal-backdrop">
           <section className="quiz-modal">
-            <div className="drawer-head"><div><p>QUIZ PREVIEW</p><h2>随机试卷预览</h2></div><button onClick={() => setQuiz([])} aria-label="关闭">×</button></div>
-            <p className="quiz-summary">已从当前筛选范围随机抽取 {quiz.length} 道已发布题目。</p>
-            <ol>{quiz.map((item) => <li key={item.id}><span>{item.section} · {item.type}</span><strong>{item.title}</strong>{item.image && <img className="quiz-image" src={item.image} alt="题图" />}
+            <div className="drawer-head"><div><p>SUBJECT 1 · FEATURED</p><h2>科目一精选500</h2></div><button onClick={() => setQuiz([])} aria-label="关闭">×</button></div>
+            <p className="quiz-summary">已按章节比例覆盖科目一，并根据题干、选项和解析相似度降低重复考点；共 {quiz.length} 道，每页展示 {FEATURED_PAGE_SIZE} 道。</p>
+            <ol start={(currentQuizPage - 1) * FEATURED_PAGE_SIZE + 1}>{pagedQuiz.map((item) => <li key={item.id}><span>{item.code} · {item.section} · {item.type}</span><strong>{item.title}</strong>{item.image && <img className="quiz-image" src={item.image} alt={`${item.code} 题图`} loading="lazy" />}
               <div className="quiz-options">{OPTION_KEYS.filter((key) => item.options[key]).map((key) => <p key={key}><b>{key}</b>{item.options[key]}</p>)}</div>
               <details><summary>查看答案与解析</summary><p><strong>{answerText(item)}</strong><br />{item.explanation}<br />{item.detailedExplanation}</p></details></li>)}</ol>
-            <button className="primary wide" onClick={() => window.print()}>打印 / 导出 PDF</button>
+            <div className="quiz-footer"><button className="ghost" disabled={currentQuizPage <= 1} onClick={() => setQuizPage((value) => Math.max(1, value - 1))}>上一页</button><span>{currentQuizPage} / {quizTotalPages}</span><button className="ghost" disabled={currentQuizPage >= quizTotalPages} onClick={() => setQuizPage((value) => Math.min(quizTotalPages, value + 1))}>下一页</button></div>
           </section>
         </div>
       )}

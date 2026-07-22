@@ -88,6 +88,7 @@ h1 { margin: 0; font: 700 34px/1.1 Georgia, "Songti SC", serif; letter-spacing: 
 .export-final { white-space: nowrap; background: #174f36; box-shadow: 0 7px 20px rgba(31,92,63,.24); }
 .ghost { color: #38443c; background: white; }
 .ghost:hover { border-color: #a8b5ab; }
+.image-export { display: inline-flex; align-items: center; white-space: nowrap; text-decoration: none; font-size: 11px; }
 .danger { color: var(--red); background: #fff7f6; border-color: #ecc9c5; }
 button:disabled { cursor: default; opacity: .55; }
 
@@ -224,6 +225,9 @@ td code { color: var(--green); font: 700 10px/1 Consolas, monospace; }
 .quiz-options { display: grid; gap: 6px; margin: 12px 0; }
 .quiz-options p { display: flex; gap: 9px; align-items: flex-start; margin: 0; color: #455048; font-size: 11px; line-height: 1.5; }
 .quiz-options b { width: 21px; height: 21px; flex: 0 0 auto; display: grid; place-items: center; color: var(--green); background: #edf4ef; border-radius: 3px; font-size: 9px; }
+.quiz-footer { position: sticky; bottom: 0; padding: 12px 26px 18px; display: flex; align-items: center; justify-content: center; gap: 16px; background: linear-gradient(rgba(255,255,255,.9), white 30%); }
+.quiz-footer span { min-width: 56px; color: var(--muted); text-align: center; font-size: 10px; font-weight: 700; }
+.quiz-footer .ghost { min-height: 34px; padding-inline: 14px; font-size: 10px; }
 details { margin-top: 9px; color: var(--muted); font-size: 11px; }
 details p { padding: 9px 11px; background: #f4f7f3; border-left: 3px solid var(--lime); }
 .wide { width: calc(100% - 52px); margin: 0 26px 26px; }
@@ -276,5 +280,5 @@ details p { padding: 9px 11px; background: #f4f7f3; border-left: 3px solid var(-
 @media print {
   .app-shell > .sidebar, .workspace, .modal-backdrop { display: none !important; }
   .quiz-modal { display: block; max-height: none; box-shadow: none; }
-  .quiz-modal .drawer-head button, .quiz-modal .wide, details { display: none; }
+  .quiz-modal .drawer-head button, .quiz-footer, details { display: none; }
 }
