@@ -26,6 +26,8 @@ python3 scripts/build_featured_500.py
 - `一键导出最终 JSON`：下载 `QuestionBank.json`；
 - `导出全部图片 ZIP`：下载 `QuestionBankImages.zip`。
 
+两项生产导出都会先打开系统保存位置选择窗口，确认文件名和目录后才开始写入文件。建议将同一版本的 JSON 与 ZIP 保存到同一个发布文件夹，便于配套上传。
+
 图片压缩包内采用扁平结构，文件名与 JSON 的“题目内容 → 图片”字段严格一致，例如：
 
 ```text

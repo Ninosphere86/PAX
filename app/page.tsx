@@ -289,6 +289,7 @@ export default function Home() {
   const [permissionName, setPermissionName] = useState("");
   const [syncing, setSyncing] = useState(false);
   const [exportingImages, setExportingImages] = useState(false);
+  const [exportingJson, setExportingJson] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const canEditQuestions = workspaceRole === "admin" || workspaceRole === "editor";
 
@@ -473,16 +474,31 @@ export default function Home() {
     flash("审核包已导出，可交给 Codex 批量修改");
   };
 
-  const exportFinalJson = () => {
+  const exportFinalJson = async () => {
+    if (exportingJson) return;
+    setExportingJson(true);
     try {
-      downloadTextFile(
-        "QuestionBank.json",
-        JSON.stringify(buildFinalQuestionBank(questions), null, 2),
-        "application/json;charset=utf-8",
-      );
+      const saveWindow = window as SaveFileWindow;
+      if (!saveWindow.showSaveFilePicker) throw new Error("当前浏览器不支持选择保存位置，请使用最新版 Chrome 或 Edge");
+      const handle = await saveWindow.showSaveFilePicker({
+        suggestedName: "QuestionBank.json",
+        types: [{ description: "JSON 题库文件", accept: { "application/json": [".json"] } }],
+      });
+      const writable = await handle.createWritable();
+      try {
+        const content = JSON.stringify(buildFinalQuestionBank(questions), null, 2);
+        await writable.write(new TextEncoder().encode(content));
+        await writable.close();
+      } catch (error) {
+        await writable.abort();
+        throw error;
+      }
       flash(`最终 JSON 已导出，共 ${questions.length} 道题`);
-    } catch {
-      flash("导出失败，请刷新页面后重试");
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") flash("已取消 JSON 导出");
+      else flash(error instanceof Error ? error.message : "导出失败，请刷新页面后重试");
+    } finally {
+      setExportingJson(false);
     }
   };
 
@@ -659,10 +675,10 @@ export default function Home() {
 
       <section className="workspace">
         <header className="topbar">
-          <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
+          <div className="topbar-title"><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1><small>统一维护、审核并发布小程序理论题库</small></div>
           <div className="topbar-right">
             <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
-            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="ghost image-export" onClick={() => void exportAllImages()} disabled={exportingImages} title="流式生成与最终 JSON 图片字段一一对应的压缩包">{exportingImages ? "正在导出图片…" : "导出全部图片 ZIP"}</button><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+            <div className="production-actions" aria-label="小程序生产文件导出"><div className="production-label"><strong>生产文件</strong><small>配套上传</small></div><button className="ghost image-export" onClick={() => void exportAllImages()} disabled={exportingImages} title="流式生成与最终 JSON 图片字段一一对应的压缩包">{exportingImages ? "正在导出图片…" : "图片 ZIP"}</button><button className="primary export-final" onClick={() => void exportFinalJson()} disabled={exportingJson} title="选择保存位置并输出 QuestionBank.json"><span>⇩</span>{exportingJson ? "正在导出…" : "题库 JSON"}</button></div>
           </div>
         </header>
 
@@ -676,7 +692,7 @@ export default function Home() {
         <section className="content-card">
           <div className="view-toolbar">
             <div><strong>检查视图</strong><span>大图按小程序 375px 内容宽度展示，可点击查看原图</span></div>
-            <div className="view-switch"><button className={viewMode === "review" ? "active" : ""} onClick={() => setViewMode("review")}>▧ 大图审核</button><button className={viewMode === "table" ? "active" : ""} onClick={() => setViewMode("table")}>☷ 管理表格</button></div>
+            <div className="view-toolbar-actions"><div className="view-switch"><button className={viewMode === "review" ? "active" : ""} onClick={() => setViewMode("review")}>▧ 大图审核</button><button className={viewMode === "table" ? "active" : ""} onClick={() => setViewMode("table")}>☷ 管理表格</button></div><button className="ghost toolbar-button" onClick={exportCsv}>导出 CSV</button>{canEditQuestions && <button className="primary add-question" onClick={startNew}><span>+</span> 新增题目</button>}</div>
           </div>
           <div className="filters">
             <label className="search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索编号、题干、选项、答案或解析" /></label>
