@@ -90,6 +90,19 @@ function csvEscape(value: string) {
   return `"${String(value).replaceAll('"', '""')}"`;
 }
 
+function downloadTextFile(filename: string, content: string, type: string) {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 function statusClass(status: Status) {
   return status === "已发布" ? "published" : status === "待审核" ? "review" : "draft";
 }
@@ -348,56 +361,25 @@ export default function Home() {
   };
 
   const exportJson = () => {
-    const blob = new Blob([JSON.stringify(questions, null, 2)], { type: "application/json" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `理论题库-审核包-${new Date().toISOString().slice(0, 10)}.json`;
-    link.click();
-    URL.revokeObjectURL(link.href);
+    downloadTextFile(
+      `理论题库-审核包-${new Date().toISOString().slice(0, 10)}.json`,
+      JSON.stringify(questions, null, 2),
+      "application/json;charset=utf-8",
+    );
     flash("审核包已导出，可交给 Codex 批量修改");
   };
 
-  const exportFinalJson = async () => {
-    const finalQuestionBank = buildFinalQuestionBank(questions);
-    const content = JSON.stringify(finalQuestionBank, null, 2);
-    const saveFilePicker = (window as typeof window & {
-      showSaveFilePicker?: (options: {
-        suggestedName: string;
-        types: Array<{ description: string; accept: Record<string, string[]> }>;
-      }) => Promise<{
-        createWritable: () => Promise<{
-          write: (data: string) => Promise<void>;
-          close: () => Promise<void>;
-        }>;
-      }>;
-    }).showSaveFilePicker;
-
-    if (saveFilePicker) {
-      try {
-        const handle = await saveFilePicker.call(window, {
-          suggestedName: "QuestionBank.json",
-          types: [{ description: "JSON 题库文件", accept: { "application/json": [".json"] } }],
-        });
-        const writable = await handle.createWritable();
-        await writable.write(content);
-        await writable.close();
-        flash(`最终 JSON 已保存，共 ${questions.length} 道题`);
-        return;
-      } catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") {
-          flash("已取消导出");
-          return;
-        }
-      }
+  const exportFinalJson = () => {
+    try {
+      downloadTextFile(
+        "QuestionBank.json",
+        JSON.stringify(buildFinalQuestionBank(questions), null, 2),
+        "application/json;charset=utf-8",
+      );
+      flash(`最终 JSON 已导出，共 ${questions.length} 道题`);
+    } catch {
+      flash("导出失败，请刷新页面后重试");
     }
-
-    const blob = new Blob([content], { type: "application/json;charset=utf-8" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "QuestionBank.json";
-    link.click();
-    URL.revokeObjectURL(link.href);
-    flash(`最终 JSON 已导出，共 ${questions.length} 道题`);
   };
 
   const exportCsv = () => {
@@ -521,7 +503,7 @@ export default function Home() {
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
           <div className="topbar-right">
             <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
-            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="选择保存位置并导出 QuestionBank.json"><span>⇩</span> 选择位置并导出 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+            <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="直接下载 QuestionBank.json"><span>⇩</span> 一键导出最终 JSON</button>{canEditQuestions && <button className="ghost" onClick={startNew}><span>+</span> 新增题目</button>}</div>
           </div>
         </header>
 
