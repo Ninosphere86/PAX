@@ -271,9 +271,41 @@ export default function Home() {
     flash("审核包已导出，可交给 Codex 批量修改");
   };
 
-  const exportFinalJson = () => {
+  const exportFinalJson = async () => {
     const finalQuestionBank = buildFinalQuestionBank(questions);
-    const blob = new Blob([JSON.stringify(finalQuestionBank, null, 2)], { type: "application/json;charset=utf-8" });
+    const content = JSON.stringify(finalQuestionBank, null, 2);
+    const saveFilePicker = (window as typeof window & {
+      showSaveFilePicker?: (options: {
+        suggestedName: string;
+        types: Array<{ description: string; accept: Record<string, string[]> }>;
+      }) => Promise<{
+        createWritable: () => Promise<{
+          write: (data: string) => Promise<void>;
+          close: () => Promise<void>;
+        }>;
+      }>;
+    }).showSaveFilePicker;
+
+    if (saveFilePicker) {
+      try {
+        const handle = await saveFilePicker.call(window, {
+          suggestedName: "QuestionBank.json",
+          types: [{ description: "JSON 题库文件", accept: { "application/json": [".json"] } }],
+        });
+        const writable = await handle.createWritable();
+        await writable.write(content);
+        await writable.close();
+        flash(`最终 JSON 已保存，共 ${questions.length} 道题`);
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          flash("已取消导出");
+          return;
+        }
+      }
+    }
+
+    const blob = new Blob([content], { type: "application/json;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = "QuestionBank.json";
@@ -355,7 +387,7 @@ export default function Home() {
       <section className="workspace">
         <header className="topbar">
           <div><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1></div>
-          <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson}><span>⇩</span> 一键导出最终 JSON</button><button className="ghost" onClick={startNew}><span>+</span> 新增题目</button></div>
+          <div className="top-actions"><button className="ghost" onClick={exportCsv}>导出 CSV</button><button className="primary export-final" onClick={exportFinalJson} title="选择保存位置并导出 QuestionBank.json"><span>⇩</span> 选择位置并导出 JSON</button><button className="ghost" onClick={startNew}><span>+</span> 新增题目</button></div>
         </header>
 
         <section className="metrics" aria-label="题库统计">
