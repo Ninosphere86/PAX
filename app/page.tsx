@@ -26,14 +26,14 @@ type Question = {
   updatedAt: string;
 };
 
-const STORAGE_KEY = "pingan-question-bank-v8";
-const LEGACY_STORAGE_KEY = "pingan-question-bank-v7";
+const STORAGE_KEY = "pingan-question-bank-v9";
+const LEGACY_STORAGE_KEY = "pingan-question-bank-v8";
 const PAGE_SIZE = 50;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
 const seedQuestions = sourceQuestions as Question[];
 const refreshedSeedImages = new Map(
   seedQuestions
-    .filter((question) => ["B01", "B02", "B03", "B04", "B05"].includes(question.section))
+    .filter((question) => ["B01", "B02", "B03", "B04", "B05", "B06", "L01"].includes(question.section))
     .map((question) => [question.code, question.image]),
 );
 
@@ -110,10 +110,15 @@ export default function Home() {
       try {
         const incoming = JSON.parse(saved) as Partial<Question>[];
         if (Array.isArray(incoming)) {
-          setQuestions(incoming.map(normalizeQuestion).map((question) => ({
+          const normalized = incoming.map(normalizeQuestion).map((question) => ({
             ...question,
             image: refreshedSeedImages.get(question.code) || question.image,
-          })));
+          }));
+          const storedCodes = new Set(normalized.map((question) => question.code));
+          const newLightingQuestions = seedQuestions.filter(
+            (question) => question.section === "L01" && !storedCodes.has(question.code),
+          );
+          setQuestions([...normalized, ...newLightingQuestions]);
         }
       } catch {
         localStorage.removeItem(STORAGE_KEY);
