@@ -217,7 +217,17 @@ export default function Home() {
         };
         if (!active) return;
 
-        const base = Array.isArray(data.snapshot) ? data.snapshot.map(normalizeQuestion) : seedQuestions;
+        const snapshotQuestions = Array.isArray(data.snapshot) ? data.snapshot.map(normalizeQuestion) : null;
+        const base = snapshotQuestions || seedQuestions;
+        if (snapshotQuestions) {
+          const snapshotCodes = new Set([
+            ...snapshotQuestions.map((question) => question.code),
+            ...(data.overrides || []).map((override) => override.question?.code || ""),
+          ]);
+          for (const seed of seedQuestions) {
+            if (seed.category === "科四场景类-C" && !snapshotCodes.has(seed.code)) base.push(seed);
+          }
+        }
         const merged = new Map(base.map((question) => [question.id, question]));
         for (const override of data.overrides || []) {
           if (override.deleted) merged.delete(override.id);
