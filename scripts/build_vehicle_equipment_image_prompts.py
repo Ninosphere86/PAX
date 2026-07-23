@@ -96,7 +96,8 @@ Text constraints: no decorative title, explanation, watermark, brand logo, float
             token in evidence for token in ["哪个", "以下哪个", "图中哪个"]
         ):
             prompt += """
-Multi-choice fidelity: the source is a choice panel. Preserve every displayed choice, its A/B/C/D label, order, icon, and color exactly. Do not omit, relabel, merge, or rearrange choices, and do not visually highlight the correct answer."""
+Multi-choice fidelity: the source is a choice panel. Preserve every displayed choice, its label, order, icon, and color exactly. Do not omit, relabel, merge, or rearrange choices, and do not visually highlight the correct answer.
+Multi-choice label fidelity: preserve the source's label system literally. If the source uses “图1/图2/图3/图4”, keep those exact Chinese labels; if it uses A/B/C/D, keep A/B/C/D. Never convert between the two systems."""
         if "左转向灯" in evidence or "向左" in evidence:
             prompt += """
 Left/right invariant: the tested left turn signal is on the vehicle's physical LEFT side. Do not mirror it."""
