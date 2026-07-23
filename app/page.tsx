@@ -1,6 +1,23 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Download,
+  FileJson,
+  FileSpreadsheet,
+  History,
+  Image as ImageIcon,
+  LayoutGrid,
+  Pencil,
+  Plus,
+  RefreshCw,
+  Rows3,
+  Search,
+  ShieldCheck,
+  Star,
+  Table2,
+  Upload,
+} from "lucide-react";
 import sourceQuestions from "./question-bank.json";
 import featuredSelection from "./featured-500.json";
 
@@ -654,12 +671,12 @@ export default function Home() {
       <aside className="sidebar">
         <div className="brand"><img className="brand-logo" src="/pingan-line-plan-logo-reverse.svg" alt="平安线计划" /><div className="brand-copy"><strong>题库</strong><small>QUIZ BANK</small></div></div>
         <nav aria-label="题库导航">
-          <button className="nav-item active"><span>▦</span> 题目管理 <b>{questions.length}</b></button>
-          <button className="nav-item" onClick={openFeatured500}><span>◇</span> 精选500 <b>500</b></button>
-          {workspaceUser && <button className="nav-item" onClick={() => setLogsOpen(true)}><span>≡</span> 修改记录 <b>{auditLogs.length}</b></button>}
-          {workspaceRole === "admin" && <button className="nav-item" onClick={() => setPermissionsOpen(true)}><span>♙</span> 编辑权限 <b>{permissions.length}</b></button>}
-          {workspaceRole === "admin" && <button className="nav-item" onClick={() => fileInput.current?.click()}><span>⇧</span> 导入批改包</button>}
-          <button className="nav-item" onClick={exportJson}><span>⇩</span> 导出审核包</button>
+          <button className="nav-item active"><LayoutGrid className="nav-icon" aria-hidden="true" /> 题目管理 <b>{questions.length}</b></button>
+          <button className="nav-item" onClick={openFeatured500}><Star className="nav-icon" aria-hidden="true" /> 精选500 <b>500</b></button>
+          {workspaceUser && <button className="nav-item" onClick={() => setLogsOpen(true)}><History className="nav-icon" aria-hidden="true" /> 修改记录 <b>{auditLogs.length}</b></button>}
+          {workspaceRole === "admin" && <button className="nav-item" onClick={() => setPermissionsOpen(true)}><ShieldCheck className="nav-icon" aria-hidden="true" /> 编辑权限 <b>{permissions.length}</b></button>}
+          {workspaceRole === "admin" && <button className="nav-item" onClick={() => fileInput.current?.click()}><Upload className="nav-icon" aria-hidden="true" /> 导入批改包</button>}
+          <button className="nav-item" onClick={exportJson}><Download className="nav-icon" aria-hidden="true" /> 导出审核包</button>
         </nav>
         <div className="category-list">
           <p>题目大类</p>
@@ -678,7 +695,7 @@ export default function Home() {
           <div className="topbar-title"><p className="eyebrow">理论考核资产中心</p><h1>题目管理</h1><small>统一维护、审核并发布小程序理论题库</small></div>
           <div className="topbar-right">
             <div className={`identity-chip role-${workspaceRole}`}><span>{workspaceUser?.displayName?.slice(0, 1).toUpperCase() || "访"}</span><div><strong>{workspaceUser?.displayName || "只读访客"}</strong><small>{workspaceRole === "admin" ? "管理员" : workspaceRole === "editor" ? "编辑者" : "只读"}</small></div>{!workspaceUser && <a href="/signin-with-chatgpt?return_to=%2F">登录</a>}</div>
-            <div className="production-actions" aria-label="小程序生产文件导出"><div className="production-label"><strong>生产文件</strong><small>配套上传</small></div><button className="ghost image-export" onClick={() => void exportAllImages()} disabled={exportingImages} title="流式生成与最终 JSON 图片字段一一对应的压缩包">{exportingImages ? "正在导出图片…" : "图片 ZIP"}</button><button className="primary export-final" onClick={() => void exportFinalJson()} disabled={exportingJson} title="选择保存位置并输出 QuestionBank.json"><span>⇩</span>{exportingJson ? "正在导出…" : "题库 JSON"}</button></div>
+            <div className="production-actions" aria-label="小程序生产文件导出"><div className="production-label"><strong>生产文件</strong><small>配套上传</small></div><button className="ghost image-export" onClick={() => void exportAllImages()} disabled={exportingImages} title="流式生成与最终 JSON 图片字段一一对应的压缩包"><ImageIcon aria-hidden="true" />{exportingImages ? "正在导出图片…" : "图片 ZIP"}</button><button className="primary export-final" onClick={() => void exportFinalJson()} disabled={exportingJson} title="选择保存位置并输出 QuestionBank.json"><FileJson aria-hidden="true" />{exportingJson ? "正在导出…" : "题库 JSON"}</button></div>
           </div>
         </header>
 
@@ -692,21 +709,21 @@ export default function Home() {
         <section className="content-card">
           <div className="view-toolbar">
             <div><strong>检查视图</strong><span>大图按小程序 375px 内容宽度展示，可点击查看原图</span></div>
-            <div className="view-toolbar-actions"><div className="view-switch"><button className={viewMode === "review" ? "active" : ""} onClick={() => setViewMode("review")}>▧ 大图审核</button><button className={viewMode === "table" ? "active" : ""} onClick={() => setViewMode("table")}>☷ 管理表格</button></div><button className="ghost toolbar-button" onClick={exportCsv}>导出 CSV</button>{canEditQuestions && <button className="primary add-question" onClick={startNew}><span>+</span> 新增题目</button>}</div>
+            <div className="view-toolbar-actions"><div className="view-switch"><button className={viewMode === "review" ? "active" : ""} onClick={() => setViewMode("review")}><Rows3 aria-hidden="true" />大图审核</button><button className={viewMode === "table" ? "active" : ""} onClick={() => setViewMode("table")}><Table2 aria-hidden="true" />管理表格</button></div><button className="ghost toolbar-button" onClick={exportCsv}><FileSpreadsheet aria-hidden="true" />导出 CSV</button>{canEditQuestions && <button className="primary add-question" onClick={startNew}><Plus aria-hidden="true" />新增题目</button>}</div>
           </div>
           <div className="filters">
-            <label className="search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索编号、题干、选项、答案或解析" /></label>
+            <label className="search"><Search aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索编号、题干、选项、答案或解析" /></label>
             <select aria-label="题型" value={typeFilter} onChange={(event) => setTypeFilter(event.target.value)}><option>全部题型</option><option>单选题</option><option>多选题</option><option>判断题</option><option>简答题</option></select>
             <select aria-label="章节" value={sectionFilter} onChange={(event) => setSectionFilter(event.target.value)}><option>全部章节</option>{sections.map((section) => <option key={section}>{section}</option>)}</select>
             <select aria-label="状态" value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)}><option>全部状态</option><option>已发布</option><option>待审核</option><option>草稿</option></select>
-            <button className="icon-button" title="清空筛选" onClick={resetFilters}>↻</button>
+            <button className="icon-button" title="清空筛选" aria-label="清空筛选" onClick={resetFilters}><RefreshCw aria-hidden="true" /></button>
           </div>
 
           {viewMode === "review" ? (
             <div className="review-grid">
               {pagedQuestions.map((question) => (
                 <article className="review-card" key={question.id}>
-                  <header><div><code>{question.code}</code><span>{question.section}</span></div>{canEditQuestions && <button onClick={() => openEditor(question)}>编辑</button>}</header>
+                  <header><div><code>{question.code}</code><span>{question.section}</span></div>{canEditQuestions && <button onClick={() => openEditor(question)}><Pencil aria-hidden="true" />编辑</button>}</header>
                   <div className="miniapp-frame">
                     {question.image ? <button className="image-button" onClick={() => setZoomImage(question.image)} title="点击查看原图"><img src={question.image} alt={`${question.code} 题图`} loading="lazy" /></button> : <div className="no-image">本题无图片</div>}
                   </div>
