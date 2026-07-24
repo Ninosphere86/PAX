@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import OrderedDict
 from pathlib import Path
 
 
@@ -88,42 +87,26 @@ def main() -> None:
     questions = json.loads(SOURCE.read_text(encoding="utf-8"))
     topic = [item for item in questions if item.get("category") == CATEGORY]
 
-    groups: OrderedDict[tuple[str, str], list[dict]] = OrderedDict()
-    for item in topic:
-        # Legacy images are sometimes reused for questions whose correct rules
-        # differ (for example, ordinary-road 50–100 m versus expressway 150 m).
-        # Reuse a generated asset only when both the source and the teaching
-        # explanation match.
-        key = (
-            item.get("image", "") or item["code"],
-            item.get("explanation", "") or item["code"],
-        )
-        groups.setdefault(key, []).append(item)
-
     payload = []
-    for index, (_, items) in enumerate(groups.items(), start=1):
-        first = items[0]
+    for index, first in enumerate(topic, start=1):
         source_image = first.get("image", "")
-        lesson_lines = [
-            f'- {item["code"]}｜题目：{item["title"]}｜正确答案含义：{answer_text(item)}｜核对要点：{item.get("explanation", "")}'
-            for item in items
-        ]
         prompt = f"""Use case: photorealistic-natural
 Asset type: 16:9 educational cover image for a Chinese driving-theory mini program
-Input images: Image 1 is the strict factual reference for the tested sign, vehicle, road geometry, device, person, number, and choice layout.
+Input images: Image 1 is visual reference only. Legacy images and legacy explanations can be stale or wrong; never copy a detail that conflicts with the question and correct answer below.
 Primary request: Rebuild this special-topic learning image so its one tested rule is immediately understandable at a 375px mini-program width.
 Section: {first["section"]}.
-Questions sharing this exact source:
-{chr(10).join(lesson_lines)}
+Question code: {first["code"]}
+Authoritative question: {first["title"]}
+Authoritative correct-answer meaning: {answer_text(first)}
 {SECTION_NOTES[first["section"]]}
-Accuracy hierarchy: preserve the tested fact, exact vehicle/person direction, road geometry, sign or symbol, distance, number, and active state before improving realism.
+Accuracy hierarchy: the authoritative question and correct answer above have highest priority. Then preserve the tested vehicle/person direction, road geometry, sign or symbol, distance, number, and active state before improving realism.
 Composition: one coherent 16:9 image, not a collage unless the source itself is a choice panel. Keep the lesson subject large, uncluttered, and readable.
-Teaching rule: visualize the legally correct fact from the explanation and correct answer. Do not present an unsafe or false statement as recommended behavior.
+Teaching rule: visualize the legally correct fact from the authoritative question and correct answer. Do not use the legacy explanation as a source of truth. Do not present an unsafe or false statement as recommended behavior.
 Reference fidelity: do not mirror left/right, swap vehicles, alter a road marking, change a sign, change a distance, invent an extra person or vehicle, or substitute a generic scene.
 Text constraints: no decorative title, paragraph, watermark, brand logo, or invented licence plate. Render only test-critical digits, Chinese characters, Latin letters, or acronyms that are required by the source."""
 
         if any(
-            token in (first.get("title", "") + first.get("explanation", ""))
+            token in first.get("title", "")
             for token in ["以下", "哪个", "图中", "如图"]
         ):
             prompt += """
@@ -135,7 +118,7 @@ Choice/reference fidelity: if the source is a multi-choice panel or uses A/B/C/D
         payload.append(
             {
                 "group": index,
-                "codes": [item["code"] for item in items],
+                "codes": [first["code"]],
                 "section": first["section"],
                 "sourceImage": source_image,
                 "sourcePath": str(ROOT / "public" / source_image.lstrip("/")),
@@ -152,7 +135,7 @@ Choice/reference fidelity: if the source is a multi-choice panel or uses A/B/C/D
         encoding="utf-8",
     )
     print(
-        f"Wrote {len(payload)} grouped prompts for {len(topic)} questions to "
+        f"Wrote {len(payload)} per-question prompts for {len(topic)} questions to "
         f"{OUTPUT.relative_to(ROOT)}"
     )
 
