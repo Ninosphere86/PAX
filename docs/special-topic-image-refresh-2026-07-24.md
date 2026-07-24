@@ -6,8 +6,10 @@
 - 题目数：236
 - 新图片计划：236 张（每题独立路径）
 - 图片目录：`public/question-images-topic-v2/`
-- 提示词生成脚本：`scripts/build_special_topic_image_prompts.py`
-- 完整分组提示词：`work/special-topic-image-prompts.json`
+- 持久生产清单：`ops/special-topic-image-pipeline.json`
+- 生产管理脚本：`scripts/manage_special_topic_pipeline.py`
+- 当前批次：`work/special-topic-current-batch.json`（最多 8 题，下一批覆盖）
+- 流程文档：`docs/special-topic-production-pipeline.md`
 
 ## 分段与进度
 
@@ -16,8 +18,8 @@
 | T01 | 18 | 18 | 已完成首轮 | 30/50/100/150 米、停车位置、普通道路与高速公路 |
 | T02 | 24 | 24 | 已完成首轮并纠错 | 申请限制、审验期限、逃逸、毒品和校车资格 |
 | T03 | 2 | 2 | 已完成首轮 | `LDW`、`ACC` 字母与含义 |
-| T04 | 166 | 166 | 进行中（已完成 16） | 标志、道路关系、速度距离、处罚和安全行为 |
-| T05 | 26 | 26 | 待生成 | 驾驶证申请、补换证、考试和有效期 |
+| T04 | 166 | 166 | 进行中（已完成 24） | 标志、道路关系、速度距离、处罚和安全行为 |
+| T05 | 26 | 26 | 进行中（已完成 8） | 驾驶证申请、补换证、考试和有效期 |
 
 ## 分组原则
 
@@ -54,14 +56,19 @@
 - `T04_07` 已纠正为黄色积水深度尺，画面不再混入限高标志。
 - `T04_12` 已按原标志轮廓重做为交叉路口预告，背景同步改为交叉路口，避免误导成向左急弯。
 - `T04_09`—`T04_16` 已与原始标志并排核对：禁止直行附加车型、车道式预告、变道车辆关系、有轨电车专用、充电站、`3+` 多乘员和步行专用标志均保持一致。
+- `T04_17`—`T04_24` 已按新生产清单完成并通过：C1/C2 准驾车型、雾天灯光、信号灯、非机动车二次过街和虚线换道。
+
+## T05 当前进度
+
+- 已完成并通过 `T05_01`—`T05_08`。
+- 已核对酒驾重大事故、补证、提前 1 日取消考试、6 年换 10 年、毒品 3 年限制、注销驾照、戒毒记录和逃逸犯罪。
 
 ## 检查材料
 
 - `work/topic-refresh-2026-07-24/t01-contact-sheet-v2.jpg`
 - `work/topic-refresh-2026-07-24/t02-contact-sheet-v2.jpg`
 - `work/topic-refresh-2026-07-24/t03-contact-sheet.jpg`
-- `work/topic-refresh-2026-07-24/t04-first8-contact-sheet.jpg`
-- `work/topic-refresh-2026-07-24/t04-09-16-contact-sheet.jpg`
-- `work/topic-refresh-2026-07-24/t04-09-16-originals.jpg`
+- `work/topic-refresh-2026-07-24/t04-contact-sheet-current.jpg`
+- `work/topic-refresh-2026-07-24/t05-contact-sheet-current.jpg`
 
 题库引用将在全部分段图片齐备并通过检查后统一切换，避免未完成的图片路径进入正式题库。
