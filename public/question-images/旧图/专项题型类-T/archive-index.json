@@ -1,0 +1,2864 @@
+{
+  "category": "专项题型类-T",
+  "archivedAt": "2026-07-25",
+  "destination": "public/question-images/旧图/专项题型类-T",
+  "items": [
+    {
+      "oldImage": "/question-images/005b96f69635721c.webp",
+      "codes": [
+        "T04_89"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-89-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/005b96f69635721c.webp",
+      "sha256": "9df6ed404d15f3d33aa73dabe6baed600655f3d7e89391667a60a722ea763fed"
+    },
+    {
+      "oldImage": "/question-images/0151331d050cdcf9.webp",
+      "codes": [
+        "T05_02"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-02-v2.jpeg"
+      ],
+      "activeReferences": [
+        "M02_06"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0151331d050cdcf9.webp",
+      "sha256": "a0d2ca70f6d19a5f72c7e212cfae0df6b3874ed7bc42420a85d524d400d5554f"
+    },
+    {
+      "oldImage": "/question-images/016e411a39d56e67.webp",
+      "codes": [
+        "T04_151"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-151-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/016e411a39d56e67.webp",
+      "sha256": "26190168e22fafe375b3bb493d4991a7a99c8315785021953b3d62c64ae01307"
+    },
+    {
+      "oldImage": "/question-images/03ad7c5c020f6a1c.webp",
+      "codes": [
+        "T04_164",
+        "T04_166"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-164-v2.jpeg",
+        "/question-images-topic-v2/t04-166-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/03ad7c5c020f6a1c.webp",
+      "sha256": "27bc23d078e45689c9dac0f8659c096a779c1944e37c8458482d538dacdf6934"
+    },
+    {
+      "oldImage": "/question-images/065360afed233b09.webp",
+      "codes": [
+        "T04_73"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-73-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/065360afed233b09.webp",
+      "sha256": "0703a0178637d046857132157ec732772040a5e4a640ee5c09b9a325a886d9cf"
+    },
+    {
+      "oldImage": "/question-images/0674cf725d1aced9.webp",
+      "codes": [
+        "T04_106"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-106-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P03_09"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0674cf725d1aced9.webp",
+      "sha256": "5f60e84d59f60998a139094959079da4cfe9faaf783f19420f17a47d4e2f7808"
+    },
+    {
+      "oldImage": "/question-images/067d8a005ff13852.webp",
+      "codes": [
+        "T04_18"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-18-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/067d8a005ff13852.webp",
+      "sha256": "2d2ec84635b9d2df00b3a3ccfc0b8b5734bff5fbd08bda1162a0ef0240dfd30b"
+    },
+    {
+      "oldImage": "/question-images/073a8581845eaeb6.webp",
+      "codes": [
+        "T05_07"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-07-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/073a8581845eaeb6.webp",
+      "sha256": "74ff236c0182354f78c973320309e4792c062eaa422dbaa6deaf9af28571a4c2"
+    },
+    {
+      "oldImage": "/question-images/0783d9055e7a917e.webp",
+      "codes": [
+        "T05_10"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-10-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0783d9055e7a917e.webp",
+      "sha256": "e1f86ee23168955e7b658693dd59033778e9157b6d3720f02648e50dfef785db"
+    },
+    {
+      "oldImage": "/question-images/09faa80ee1abda3e.webp",
+      "codes": [
+        "T01_09"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-09-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/09faa80ee1abda3e.webp",
+      "sha256": "af0917e6af2ded2d749986a8daeeca58379127d65753602c960451b47e4507dc"
+    },
+    {
+      "oldImage": "/question-images/0ab44030af57e344.webp",
+      "codes": [
+        "T04_12"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-12-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0ab44030af57e344.webp",
+      "sha256": "2b814b2afaf16813402411cf8805ec0ae6bd7eb78776ee223ed875e34785a329"
+    },
+    {
+      "oldImage": "/question-images/0b3c2d0cfc6ed981.webp",
+      "codes": [
+        "T04_13"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-13-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0b3c2d0cfc6ed981.webp",
+      "sha256": "0b20526080ece8797fa50b671e065ca219d0d9d08bb7b5f5451eaf3324a79a67"
+    },
+    {
+      "oldImage": "/question-images/0bab57ad3a945f5f.webp",
+      "codes": [
+        "T04_95"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-95-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0bab57ad3a945f5f.webp",
+      "sha256": "ce3c3f3b6600ba6b5a9d007b20b775ab1d8986a0982496a55528164280ab2270"
+    },
+    {
+      "oldImage": "/question-images/0bbf3534d603202e.webp",
+      "codes": [
+        "T04_90"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-90-v2.jpeg"
+      ],
+      "activeReferences": [
+        "M03_03"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0bbf3534d603202e.webp",
+      "sha256": "1d45e6b6817bfb3ae9956626b8a007a8741f43bd47a5645e7d9d1f7977e69c6a"
+    },
+    {
+      "oldImage": "/question-images/0e4abcfa8f878932.webp",
+      "codes": [
+        "T04_112"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-112-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0e4abcfa8f878932.webp",
+      "sha256": "2b3b854aa3e1c93f22224f74c749a4c4913ab80c15a9bde455c546ad97e000c3"
+    },
+    {
+      "oldImage": "/question-images/0edccef23e3d0caf.webp",
+      "codes": [
+        "T01_08"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-08-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/0edccef23e3d0caf.webp",
+      "sha256": "3cacccd2f41f2508b0e62babe8f26f7ff0a601908fe8bc8e95ed21c10a8d21f2"
+    },
+    {
+      "oldImage": "/question-images/10e4f6e010343754.webp",
+      "codes": [
+        "T04_134"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-134-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/10e4f6e010343754.webp",
+      "sha256": "f539b59f2b16fc09cdd278bb1ce84c3ffdc84005cde3c9c8c46f9241598d882a"
+    },
+    {
+      "oldImage": "/question-images/14d72bc2fe710403.webp",
+      "codes": [
+        "T04_39"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-39-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/14d72bc2fe710403.webp",
+      "sha256": "60eb6e110e36977c8112118408a4160c17d788a8d123eab1d8c3aabefd73aeba"
+    },
+    {
+      "oldImage": "/question-images/14e4ab360e9f924c.webp",
+      "codes": [
+        "T04_19"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-19-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/14e4ab360e9f924c.webp",
+      "sha256": "68c32c9680af27950a4deccab04b0c2fbf6403551251d9b50fd27a81dc9c7f46"
+    },
+    {
+      "oldImage": "/question-images/163a5adb14d0c9ae.webp",
+      "codes": [
+        "T04_60"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-60-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/163a5adb14d0c9ae.webp",
+      "sha256": "324d7fbada80e227156b81dcbe9c102fc70c9b0b987c9623a81aad8106f7c353"
+    },
+    {
+      "oldImage": "/question-images/16633b24cf2e347e.webp",
+      "codes": [
+        "T04_49"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-49-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/16633b24cf2e347e.webp",
+      "sha256": "1cc2e500d04a031ad3bfbac6387dafff6ac1fdb8677191f5e420e077ee75295f"
+    },
+    {
+      "oldImage": "/question-images/18208049fbdaedda.webp",
+      "codes": [
+        "T04_93"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-93-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/18208049fbdaedda.webp",
+      "sha256": "fbc6ff2a04e395c590b91e701c4ef29f6a88759f330c6dce0a4f5b67fca5ac36"
+    },
+    {
+      "oldImage": "/question-images/1d61f8be59751c1e.webp",
+      "codes": [
+        "T04_69"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-69-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/1d61f8be59751c1e.webp",
+      "sha256": "e15ce518ba5285e4b59ce9702bac839c51a90bc070465d76b4742d90bec2a0b8"
+    },
+    {
+      "oldImage": "/question-images/1ef7cd718d42cb9a.webp",
+      "codes": [
+        "T04_53",
+        "T04_100"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-53-v2.jpeg",
+        "/question-images-topic-v2/t04-100-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/1ef7cd718d42cb9a.webp",
+      "sha256": "032d5aa55124ab774ce84d6cc614c6c76e56491d1c22e50beeffaee0dcee85b8"
+    },
+    {
+      "oldImage": "/question-images/1f39050c0531d2d2.webp",
+      "codes": [
+        "T04_133"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-133-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/1f39050c0531d2d2.webp",
+      "sha256": "fb6e00d2c0f3fdb32f5ced4ff909e47c5352184fa86e58bd49044884afb39e88"
+    },
+    {
+      "oldImage": "/question-images/1f5bc2569260ab32.webp",
+      "codes": [
+        "T04_147"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-147-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/1f5bc2569260ab32.webp",
+      "sha256": "a453bcaefbac2c800d33352109df7c2e57f5d353104771eae6a2ff96bdbf2b88"
+    },
+    {
+      "oldImage": "/question-images/22aa43ac729bf627.webp",
+      "codes": [
+        "T04_07"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-07-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/22aa43ac729bf627.webp",
+      "sha256": "1b3cc70afcb95e5f40f702e58a72d672f958875f8f0648b4cee1c0a38714fc2e"
+    },
+    {
+      "oldImage": "/question-images/23ea26c86deb3c52.webp",
+      "codes": [
+        "T04_29"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-29-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/23ea26c86deb3c52.webp",
+      "sha256": "b445816e794d27477bbc10c2d13f809fe5df85fc45034c03962b90d0b4aa23d1"
+    },
+    {
+      "oldImage": "/question-images/2476f09e13454b40.webp",
+      "codes": [
+        "T04_63"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-63-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/2476f09e13454b40.webp",
+      "sha256": "225db62078fc801da670d362eec4fd852add9ad25a58d555fa278631ded89e2d"
+    },
+    {
+      "oldImage": "/question-images/2576a0a2770da5cd.webp",
+      "codes": [
+        "T04_138"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-138-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/2576a0a2770da5cd.webp",
+      "sha256": "11673468b4dc75972b5f9ccdc22649f28cc9697fe9a3ba5c81e8aae51d725530"
+    },
+    {
+      "oldImage": "/question-images/27aec6d5c0d15a5c.webp",
+      "codes": [
+        "T04_102"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-102-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/27aec6d5c0d15a5c.webp",
+      "sha256": "54a3074327dd836e6f1966b6344cc693e760c23be6f0ad6d12288a7d6866e146"
+    },
+    {
+      "oldImage": "/question-images/27edceb1ab1b91ce.webp",
+      "codes": [
+        "T04_115"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-115-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/27edceb1ab1b91ce.webp",
+      "sha256": "044504a8b4494253790e82094d9a71a455fd17e6ee20061babbea866cb840eb2"
+    },
+    {
+      "oldImage": "/question-images/2eca214d758df210.webp",
+      "codes": [
+        "T04_54"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-54-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/2eca214d758df210.webp",
+      "sha256": "6ad5e51c496116c82b6d9b35d36788cc9ca8e5c89d97ce114d5bc4e077ace084"
+    },
+    {
+      "oldImage": "/question-images/2f6bc157cf824e1b.webp",
+      "codes": [
+        "T04_52"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-52-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/2f6bc157cf824e1b.webp",
+      "sha256": "c30df89281d395f72026107dcb96db5d5b23f676f83bd0edbef1e3a070e4cc90"
+    },
+    {
+      "oldImage": "/question-images/316589bee4b33ae4.webp",
+      "codes": [
+        "T04_31",
+        "T04_32"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-31-v2.jpeg",
+        "/question-images-topic-v2/t04-32-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/316589bee4b33ae4.webp",
+      "sha256": "cd0b47eacb4224635c62945a8b46d519dc5cd8733ba551a59f697465d0ee2833"
+    },
+    {
+      "oldImage": "/question-images/32251e7e1c420a22.webp",
+      "codes": [
+        "T04_120"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-120-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/32251e7e1c420a22.webp",
+      "sha256": "a961224521bcd8e01b773ae4f2c021e1f20fba7d2bfc2e906a458b12187a1c45"
+    },
+    {
+      "oldImage": "/question-images/32374604869a4b81.webp",
+      "codes": [
+        "T01_07"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-07-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/32374604869a4b81.webp",
+      "sha256": "6e002c939978b3194ee5adf839aff38f5d3151df5d48863ff8cdbfad48c6eb1c"
+    },
+    {
+      "oldImage": "/question-images/33ece0c1347b9c23.webp",
+      "codes": [
+        "T01_11"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-11-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/33ece0c1347b9c23.webp",
+      "sha256": "ea8e8aa6919961ca06ee510b08f89fd43e1aafd1ce9905a571ce8699337f196f"
+    },
+    {
+      "oldImage": "/question-images/3406fd0651e1b5a8.webp",
+      "codes": [
+        "T04_118",
+        "T04_121"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-118-v2.jpeg",
+        "/question-images-topic-v2/t04-121-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/3406fd0651e1b5a8.webp",
+      "sha256": "a71bf243ec76cd1662746e7af432c23cf2602d39f201abddec2fff0ac34a1725"
+    },
+    {
+      "oldImage": "/question-images/342e995b158946e1.webp",
+      "codes": [
+        "T04_64"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-64-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/342e995b158946e1.webp",
+      "sha256": "2d803d8b7937cde8edf439606ea77979909edaba8c93b73ded1adc1f31cb0329"
+    },
+    {
+      "oldImage": "/question-images/34341f5c38832d40.webp",
+      "codes": [
+        "T04_149"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-149-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/34341f5c38832d40.webp",
+      "sha256": "4040365f60781646b070481569ecc7b55db9342cf6e08253759c2eb50c69cd8e"
+    },
+    {
+      "oldImage": "/question-images/37bbb6d5bd438ba7.webp",
+      "codes": [
+        "T04_16"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-16-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/37bbb6d5bd438ba7.webp",
+      "sha256": "65d7a86421a36d6dbcafdb55a4239a5420e87f8b1e49b3add1c17ef1ad1b1c8f"
+    },
+    {
+      "oldImage": "/question-images/389e81cc435815e6.webp",
+      "codes": [
+        "T02_18"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-18-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/389e81cc435815e6.webp",
+      "sha256": "3e29298012218994dfc9a228382a32d5f3c5804f6e140408940616d0bb5dc21b"
+    },
+    {
+      "oldImage": "/question-images/3902f1349ac786eb.webp",
+      "codes": [
+        "T04_108"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-108-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P04_43"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/3902f1349ac786eb.webp",
+      "sha256": "126d5d7fe74818e7f6805a785f380f795c953e1b24540f40500190b49a06351d"
+    },
+    {
+      "oldImage": "/question-images/39749575af3251dc.webp",
+      "codes": [
+        "T04_92"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-92-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/39749575af3251dc.webp",
+      "sha256": "ae4e7659e60722180be10acf4e32c9c655998ffbd6d7a45f14218fe44c0b5f11"
+    },
+    {
+      "oldImage": "/question-images/3f14847334743cc2.webp",
+      "codes": [
+        "T04_145"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-145-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/3f14847334743cc2.webp",
+      "sha256": "a794f70102444857d589501cae51b7dddf7cc894d3966fe64777a9fa6866d4ad"
+    },
+    {
+      "oldImage": "/question-images/424e8c2fe6c6048e.webp",
+      "codes": [
+        "T05_18"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-18-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/424e8c2fe6c6048e.webp",
+      "sha256": "11ce43a2709aadb3db24bac6de640c415b6bb9319526e40eb8f3bd12f57d5744"
+    },
+    {
+      "oldImage": "/question-images/42bfca50f4dd809b.webp",
+      "codes": [
+        "T04_124"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-124-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/42bfca50f4dd809b.webp",
+      "sha256": "e99ccfb1f82e33b66db53144691d2c83fd0605c882794c435376ef6b6ff42df0"
+    },
+    {
+      "oldImage": "/question-images/45818c6cd5f66259.webp",
+      "codes": [
+        "T04_153"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-153-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/45818c6cd5f66259.webp",
+      "sha256": "255d1c01856041d3e7d5a21005743b3bbedaa58bb56ccb47e5d3c107f56609ce"
+    },
+    {
+      "oldImage": "/question-images/465fa9381fb761b9.webp",
+      "codes": [
+        "T04_30"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-30-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/465fa9381fb761b9.webp",
+      "sha256": "b68e150df86cf1552a8e960a64bb219a5003392b20d208bf653ec1fa1de66b71"
+    },
+    {
+      "oldImage": "/question-images/4813e0754a5eb462.webp",
+      "codes": [
+        "T04_71"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-71-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/4813e0754a5eb462.webp",
+      "sha256": "3996b953c77d10599d5f9f52fe65da4a52ea96b388e4e1f2da854dd9ac7c6020"
+    },
+    {
+      "oldImage": "/question-images/48e699e174eb699d.webp",
+      "codes": [
+        "T04_91"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-91-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/48e699e174eb699d.webp",
+      "sha256": "89ee9003ae10f23802039404cf72499734e8cd2634ccba7198c18f2b457a635f"
+    },
+    {
+      "oldImage": "/question-images/4a916bde4e934bcf.webp",
+      "codes": [
+        "T04_137"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-137-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/4a916bde4e934bcf.webp",
+      "sha256": "00bafef56c803799d77b769929da5e528001f1c5f104cb002bec1d9085f4027a"
+    },
+    {
+      "oldImage": "/question-images/4d225d78f621200c.webp",
+      "codes": [
+        "T04_152"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-152-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/4d225d78f621200c.webp",
+      "sha256": "56f079c3f16aa860b3568ab2b0ca82107654aef831b39450b4f2e2d08240af7d"
+    },
+    {
+      "oldImage": "/question-images/4e989078ef039020.webp",
+      "codes": [
+        "T05_24"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-24-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P04_75",
+        "P08_08",
+        "P08_10"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/4e989078ef039020.webp",
+      "sha256": "a11f784818ce49e4d9ff598c6617cce39e175683e5e32addef789ad564622b4a"
+    },
+    {
+      "oldImage": "/question-images/503fc9cf8f383760.webp",
+      "codes": [
+        "T05_19"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-19-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/503fc9cf8f383760.webp",
+      "sha256": "dfc91bee5a08094c9434ffa403dd9cea01a3c95de6b1898e11c854d13f3dee23"
+    },
+    {
+      "oldImage": "/question-images/50e1780e998c5651.webp",
+      "codes": [
+        "T04_126"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-126-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P01_19"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/50e1780e998c5651.webp",
+      "sha256": "feddebb37d65daf115dadc6c808858c7f2f246b1522176109a9350018f8ab57a"
+    },
+    {
+      "oldImage": "/question-images/517d2b9c54bd29ed.webp",
+      "codes": [
+        "T04_43"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-43-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/517d2b9c54bd29ed.webp",
+      "sha256": "29fe0636b373ff9e8019c0a96c2a6bf3dd6b82661e777f4282b922dab34cbc79"
+    },
+    {
+      "oldImage": "/question-images/5190d35188f13550.webp",
+      "codes": [
+        "T04_136"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-136-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5190d35188f13550.webp",
+      "sha256": "7fbe2abcba727c846049e14813dd902c0847808a1832347aab899f5dcf8c35bf"
+    },
+    {
+      "oldImage": "/question-images/51b9f45bf3c7bfaf.webp",
+      "codes": [
+        "T01_03"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-03-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/51b9f45bf3c7bfaf.webp",
+      "sha256": "15eb536c1937c218708922531f7ea5b0842eafba15dfb92194eb01f8662a8887"
+    },
+    {
+      "oldImage": "/question-images/520a3f1b12a4f8ce.webp",
+      "codes": [
+        "T04_135"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-135-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/520a3f1b12a4f8ce.webp",
+      "sha256": "52ebead59894ad3fb6043a1352f59500472dedaccb0b869ecc7a63b718933555"
+    },
+    {
+      "oldImage": "/question-images/53ff36b97ed352b7.webp",
+      "codes": [
+        "T04_57",
+        "T04_58",
+        "T04_76",
+        "T04_85",
+        "T04_94"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-57-v2.jpeg",
+        "/question-images-topic-v2/t04-58-v2.jpeg",
+        "/question-images-topic-v2/t04-76-v2.jpeg",
+        "/question-images-topic-v2/t04-85-v2.jpeg",
+        "/question-images-topic-v2/t04-94-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/53ff36b97ed352b7.webp",
+      "sha256": "e4020655d860ca1ef43a7d7a8f5a2aa3e155d28fae5fc19ee8e4a27ad1626fbf"
+    },
+    {
+      "oldImage": "/question-images/591727e713fb14f4.webp",
+      "codes": [
+        "T04_157"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-157-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/591727e713fb14f4.webp",
+      "sha256": "e31b817ee78a2d9dc8ce02bf2523b3798ae1c5118ecb18f27df26b92cc1a237c"
+    },
+    {
+      "oldImage": "/question-images/5a1cdc4cf3549ec6.webp",
+      "codes": [
+        "T04_45",
+        "T04_161"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-45-v2.jpeg",
+        "/question-images-topic-v2/t04-161-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5a1cdc4cf3549ec6.webp",
+      "sha256": "1552908be1330fa18c024884bffce808a3f61369fc0deae04ffedd42197fcd47"
+    },
+    {
+      "oldImage": "/question-images/5ab6f6f99568590c.webp",
+      "codes": [
+        "T04_67"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-67-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5ab6f6f99568590c.webp",
+      "sha256": "fad4b87eb6dbe0471aaec150b97db1eac48bf2914b6933d25cf67c04e720923e"
+    },
+    {
+      "oldImage": "/question-images/5bb452f5efcb4042.webp",
+      "codes": [
+        "T04_101"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-101-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5bb452f5efcb4042.webp",
+      "sha256": "394522ade037d34a2ba9c7420cfb4112a958dd9554ade88543cb090737ad8fae"
+    },
+    {
+      "oldImage": "/question-images/5e65373625664a65.webp",
+      "codes": [
+        "T05_22"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-22-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5e65373625664a65.webp",
+      "sha256": "790c0e1095ce7a727094df609e61dd310fce61f53bead5178eb417fe9784e9f8"
+    },
+    {
+      "oldImage": "/question-images/5fbf980ddb41f89e.webp",
+      "codes": [
+        "T04_20"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-20-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/5fbf980ddb41f89e.webp",
+      "sha256": "b407150150a7aa52a02d0d2b23b28d5cafdaf00d97760acc7270a59c26f3a70d"
+    },
+    {
+      "oldImage": "/question-images/6002554fd976677f.webp",
+      "codes": [
+        "T04_146"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-146-v2.jpeg"
+      ],
+      "activeReferences": [
+        "B06_12"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6002554fd976677f.webp",
+      "sha256": "a8f7c20a1054334635bbbbb727687e29a9602ff3a3a3345b5e143b1798341b87"
+    },
+    {
+      "oldImage": "/question-images/6103140ac729a93b.webp",
+      "codes": [
+        "T02_25"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-25-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6103140ac729a93b.webp",
+      "sha256": "81497a3db9018b0a0211d2f8bb989271b7dff98150b5505d8a8c048c9e33b0db"
+    },
+    {
+      "oldImage": "/question-images/642c69ef836a2ad3.webp",
+      "codes": [
+        "T04_96"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-96-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/642c69ef836a2ad3.webp",
+      "sha256": "8f4c612ce9ac2e37983fc0f7662f6829852ec583d72f0fd08eff9a9d15659b00"
+    },
+    {
+      "oldImage": "/question-images/664f02c9d59918de.webp",
+      "codes": [
+        "T04_163"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-163-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/664f02c9d59918de.webp",
+      "sha256": "6b3684f57ec7295f1f8ad05f198f288359e0e3aa79b190c3a6ebf81c62fbcd62"
+    },
+    {
+      "oldImage": "/question-images/679e085b21d4cb1c.webp",
+      "codes": [
+        "T04_87"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-87-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/679e085b21d4cb1c.webp",
+      "sha256": "f72353406b377ae9d7b0afba4a753a4115ef84875b598c1fd215324b56dab0f3"
+    },
+    {
+      "oldImage": "/question-images/67cd04479139d645.webp",
+      "codes": [
+        "T04_02"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-02-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/67cd04479139d645.webp",
+      "sha256": "3869bd977602609073a5f6a9a456b6dea568bb73f6d704f14de4a4a0a04769bb"
+    },
+    {
+      "oldImage": "/question-images/67e22ae79616aa17.webp",
+      "codes": [
+        "T04_41"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-41-v2.jpeg"
+      ],
+      "activeReferences": [
+        "B06_33"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/67e22ae79616aa17.webp",
+      "sha256": "133ec5593fa33a4c6e1ea8c26831c2d3e753fc69f0293f0bd65ebfb3c88e98c1"
+    },
+    {
+      "oldImage": "/question-images/68003efe25987cb9.webp",
+      "codes": [
+        "T01_15",
+        "T01_16",
+        "T01_17",
+        "T01_18"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-15-v2.jpeg",
+        "/question-images-topic-v2/t01-16-v2.jpeg",
+        "/question-images-topic-v2/t01-17-v2.jpeg",
+        "/question-images-topic-v2/t01-18-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/68003efe25987cb9.webp",
+      "sha256": "5601d1d9d0286f4da4c3951f0f01014a33dc8618a1668358a5b45d93a66f8818"
+    },
+    {
+      "oldImage": "/question-images/685698036261cc53.webp",
+      "codes": [
+        "T04_103"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-103-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/685698036261cc53.webp",
+      "sha256": "5311319225460d2cbaaaf570a2007fe11d2e0cbda658ea25f6cbc97355ba78c2"
+    },
+    {
+      "oldImage": "/question-images/68976bdf5546a2e8.webp",
+      "codes": [
+        "T04_74"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-74-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/68976bdf5546a2e8.webp",
+      "sha256": "0d3c779fb7f319b93f404527c9e79de29b8c5e6cadc7869aa6ce32e6a68d4b54"
+    },
+    {
+      "oldImage": "/question-images/69c3ec6f3c081955.webp",
+      "codes": [
+        "T05_09"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-09-v2.jpeg"
+      ],
+      "activeReferences": [
+        "M02_11",
+        "P03_05"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/69c3ec6f3c081955.webp",
+      "sha256": "bd835abcd03eb299e2723cd3e8d240e31074269ef7f6bb960a8a8e6c2d68de79"
+    },
+    {
+      "oldImage": "/question-images/6a219cd6b012310d.webp",
+      "codes": [
+        "T02_23"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-23-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6a219cd6b012310d.webp",
+      "sha256": "8b5821ed5423bf9058b7fc3b4b5cce6fcafa9277bdf14f2d7d1c166c8d56b827"
+    },
+    {
+      "oldImage": "/question-images/6a495bc74ebbb173.webp",
+      "codes": [
+        "T04_139"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-139-v2.jpeg"
+      ],
+      "activeReferences": [
+        "S04_27"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6a495bc74ebbb173.webp",
+      "sha256": "00c2271c86ed8a45522cdc2bf0071264a865e631f794d67e667224ef06f53029"
+    },
+    {
+      "oldImage": "/question-images/6be4fbd368bf8db4.webp",
+      "codes": [
+        "T04_140"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-140-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6be4fbd368bf8db4.webp",
+      "sha256": "63562db90c309aa9705c5e4f3a2ad8d0a9772b66cf4ddeac7c7d1354519b2c73"
+    },
+    {
+      "oldImage": "/question-images/6f9313dbb72de7ab.webp",
+      "codes": [
+        "T04_42"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-42-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/6f9313dbb72de7ab.webp",
+      "sha256": "a422d7bd4e101ec2da4ce392d862ad008062b4bb49495bf911d7b54c6385b3db"
+    },
+    {
+      "oldImage": "/question-images/7218e66883e6b996.webp",
+      "codes": [
+        "T01_14"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-14-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P04_15",
+        "P04_19"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/7218e66883e6b996.webp",
+      "sha256": "251a1dce095ab317abf864656da1f27bee4eab591293847043f1644a75fb6f67"
+    },
+    {
+      "oldImage": "/question-images/73dab9f9fcdccbc6.webp",
+      "codes": [
+        "T04_14"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-14-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/73dab9f9fcdccbc6.webp",
+      "sha256": "9a505105e124051b65f984bbead3e737ac16893f5745b0dba36f02feb8761465"
+    },
+    {
+      "oldImage": "/question-images/74c8d717444a8240.webp",
+      "codes": [
+        "T02_22",
+        "T02_24"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-22-v2.jpeg",
+        "/question-images-topic-v2/t02-24-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/74c8d717444a8240.webp",
+      "sha256": "6aedd58d0ffa35e09c06d61d4468ae71c939db327cc0bfd03582fe53493bc2cb"
+    },
+    {
+      "oldImage": "/question-images/773b4497c8418670.webp",
+      "codes": [
+        "T04_165"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-165-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/773b4497c8418670.webp",
+      "sha256": "6a182b08f5f510d9c43ddea42e41b988c8630da93b6705ac52c814ec11b1d4d7"
+    },
+    {
+      "oldImage": "/question-images/788183a1128c4b8f.webp",
+      "codes": [
+        "T04_33"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-33-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/788183a1128c4b8f.webp",
+      "sha256": "8e44596f578c68c04a07848ac0fb37451791b1c07ed51e6fcf7fe81d5b652f4e"
+    },
+    {
+      "oldImage": "/question-images/78f6549545678d22.webp",
+      "codes": [
+        "T02_16",
+        "T05_05"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-16-v2.jpeg",
+        "/question-images-topic-v2/t05-05-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/78f6549545678d22.webp",
+      "sha256": "1f9d84703859c084ac57f72940f570deef98f0cdff91d7f68e15035b2fad14f4"
+    },
+    {
+      "oldImage": "/question-images/7924377f90748068.webp",
+      "codes": [
+        "T04_23"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-23-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/7924377f90748068.webp",
+      "sha256": "a22ae89cf5e893f8ce89ff928a47bb73a5b62ca7bb680355b66c6e3884e01136"
+    },
+    {
+      "oldImage": "/question-images/7d67743126515033.webp",
+      "codes": [
+        "T04_158",
+        "T04_159"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-158-v2.jpeg",
+        "/question-images-topic-v2/t04-159-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/7d67743126515033.webp",
+      "sha256": "efa2045247cfdd6f5ecf72974747c0d1a39003be96ccf28aedea2c6a02a72b0c"
+    },
+    {
+      "oldImage": "/question-images/7e8d6f3296403606.webp",
+      "codes": [
+        "T04_150"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-150-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/7e8d6f3296403606.webp",
+      "sha256": "0027f35bf39359b2d1c40946ed7b63ae6032fe9f0de319bd73f05d5a582df493"
+    },
+    {
+      "oldImage": "/question-images/7f43b632940ad6ce.webp",
+      "codes": [
+        "T05_21"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-21-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/7f43b632940ad6ce.webp",
+      "sha256": "56cf16a0f784fcfc89c11450109015eadb7778c19cba6849c7bc75644bc0a967"
+    },
+    {
+      "oldImage": "/question-images/8001984fc0407971.webp",
+      "codes": [
+        "T04_38"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-38-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8001984fc0407971.webp",
+      "sha256": "2280f9601700d5704190c3e01054b4131a65be8611985821ddbf80d9d027c35c"
+    },
+    {
+      "oldImage": "/question-images/8258638c0a354d36.webp",
+      "codes": [
+        "T05_16"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-16-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8258638c0a354d36.webp",
+      "sha256": "4ee1cf8b415c2aed0ec5ad70e60856575a4ea55a4ed44899cf857b79d1c6f196"
+    },
+    {
+      "oldImage": "/question-images/83029de5f4fac81c.webp",
+      "codes": [
+        "T04_56",
+        "T04_72"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-56-v2.jpeg",
+        "/question-images-topic-v2/t04-72-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/83029de5f4fac81c.webp",
+      "sha256": "7743d19f725bc1bcf461978c7764cf1b3801bd262fd715c3cbf1bc65203acef1"
+    },
+    {
+      "oldImage": "/question-images/83bb411d8294af28.webp",
+      "codes": [
+        "T04_144"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-144-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/83bb411d8294af28.webp",
+      "sha256": "588ce1b9a9e8161b55fd8386ddcd0893910e37ffac215b7f6ec008876d0319a8"
+    },
+    {
+      "oldImage": "/question-images/8440d725f669ea29.webp",
+      "codes": [
+        "T01_02"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-02-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8440d725f669ea29.webp",
+      "sha256": "ea29ef920282546c82e6bf2e3758dfdb19143cf5d3ef10cd9865095d2e026f5e"
+    },
+    {
+      "oldImage": "/question-images/8815a45de69e0b17.webp",
+      "codes": [
+        "T04_148"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-148-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8815a45de69e0b17.webp",
+      "sha256": "7a6e6a9b68bfee3e264718f116355f413a6ccaa1661f454da76b0f27cb4ce12c"
+    },
+    {
+      "oldImage": "/question-images/8825bd9c36aa6b49.webp",
+      "codes": [
+        "T04_44"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-44-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8825bd9c36aa6b49.webp",
+      "sha256": "5bf4e69ce0d809ed619391351457787033c7c0b775adbca21d7af3f01c7b1de9"
+    },
+    {
+      "oldImage": "/question-images/88862a9ea7c0da87.webp",
+      "codes": [
+        "T04_46",
+        "T04_80",
+        "T04_114"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-46-v2.jpeg",
+        "/question-images-topic-v2/t04-80-v2.jpeg",
+        "/question-images-topic-v2/t04-114-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P04_11"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/88862a9ea7c0da87.webp",
+      "sha256": "c07161eb283eeb96580de3ec82b442838a847b76cc4763c60ec7416f30323312"
+    },
+    {
+      "oldImage": "/question-images/8c420f2c983f0a62.webp",
+      "codes": [
+        "T04_142"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-142-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8c420f2c983f0a62.webp",
+      "sha256": "575ba1c1730776042a79c46b7261ea42509ba06ceb4db79ae272e6919ce576ef"
+    },
+    {
+      "oldImage": "/question-images/8dc43196726a8d4a.webp",
+      "codes": [
+        "T04_25"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-25-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8dc43196726a8d4a.webp",
+      "sha256": "3d43ee06f36264f409357cf10d31aa975d1efb9a6eeb384677c7a2777b92a366"
+    },
+    {
+      "oldImage": "/question-images/8ed3eb82294f127b.webp",
+      "codes": [
+        "T04_22"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-22-v2.jpeg"
+      ],
+      "activeReferences": [
+        "S01_29"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/8ed3eb82294f127b.webp",
+      "sha256": "59a1f9c05e729c39392603fff0a90e2afd7a75a01be63086cd1144a9f743170a"
+    },
+    {
+      "oldImage": "/question-images/927d6bff8f088dd8.webp",
+      "codes": [
+        "T04_75"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-75-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/927d6bff8f088dd8.webp",
+      "sha256": "8d4a7cdf90efca8dcbcfde647d9b9ca0abace61e431df5b63d487bb4c0ce6251"
+    },
+    {
+      "oldImage": "/question-images/9336bb462a31479e.webp",
+      "codes": [
+        "T02_34",
+        "T05_17"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-34-v2.jpeg",
+        "/question-images-topic-v2/t05-17-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P09_19",
+        "P09_20"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/9336bb462a31479e.webp",
+      "sha256": "368e62e094909eb37a82dcba721a19990ac9bd31a466f201543de94eb116e66f"
+    },
+    {
+      "oldImage": "/question-images/95f91a0a1b90f9cb.webp",
+      "codes": [
+        "T04_15"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-15-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/95f91a0a1b90f9cb.webp",
+      "sha256": "53c3e5e0c10b8df0b55aeeea183652360a5555b95350f8d89f038c20170f498e"
+    },
+    {
+      "oldImage": "/question-images/95fc73cdcb8daf2e.webp",
+      "codes": [
+        "T04_125"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-125-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/95fc73cdcb8daf2e.webp",
+      "sha256": "028a4eda3102cd0bb868b3062b155c9064fc46a53dcc3ffeedc593331eacb1c4"
+    },
+    {
+      "oldImage": "/question-images/9644088560cf3732.webp",
+      "codes": [
+        "T04_131"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-131-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/9644088560cf3732.webp",
+      "sha256": "913870e42f0537b28fdf0c56dac2808ccac7bcf586071804caf2b03affccea38"
+    },
+    {
+      "oldImage": "/question-images/97b2ce6a4a3defb3.webp",
+      "codes": [
+        "T04_08",
+        "T04_77"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-08-v2.jpeg",
+        "/question-images-topic-v2/t04-77-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/97b2ce6a4a3defb3.webp",
+      "sha256": "efc552b5621b503fc54a9b8f2a54f56e5c2ee42d0ebc7476872220877b10215e"
+    },
+    {
+      "oldImage": "/question-images/99dcc1f5cb32093d.webp",
+      "codes": [
+        "T04_129"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-129-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/99dcc1f5cb32093d.webp",
+      "sha256": "8f6356de9e6969349bb325a236e87fefbbb145d681eb579805e360de30bc69b6"
+    },
+    {
+      "oldImage": "/question-images/9a9aee16297f365c.webp",
+      "codes": [
+        "T02_04"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-04-v2.jpeg"
+      ],
+      "activeReferences": [
+        "S01_32"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/9a9aee16297f365c.webp",
+      "sha256": "894ff60c730438d1adacd939cde64cded23df8d87ad58fb1d761f948af5dc0a7"
+    },
+    {
+      "oldImage": "/question-images/9c354d2a83dd3af4.webp",
+      "codes": [
+        "T04_122"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-122-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/9c354d2a83dd3af4.webp",
+      "sha256": "46401bf54d7140876060cc0240bdbee992fa473b83acfcf0f87c6ba85a30b829"
+    },
+    {
+      "oldImage": "/question-images/9d5b4ad133bd9334.webp",
+      "codes": [
+        "T04_61"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-61-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/9d5b4ad133bd9334.webp",
+      "sha256": "b3db9a4f32063c7c89ebdea4318c28c5ffc94148931a0ec40c872bf32c4b14e3"
+    },
+    {
+      "oldImage": "/question-images/a1e1225ce6dd7e97.webp",
+      "codes": [
+        "T04_68"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-68-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a1e1225ce6dd7e97.webp",
+      "sha256": "58479dc765c0ddca92169793f28be6d85a3591983a22d05f3eb283f7c240830a"
+    },
+    {
+      "oldImage": "/question-images/a1fbcecebbae87d3.webp",
+      "codes": [
+        "T04_128"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-128-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a1fbcecebbae87d3.webp",
+      "sha256": "77e350d467de1e2af0efa2380ce8c687f09e3492a003e88473625bfb3a78c9e6"
+    },
+    {
+      "oldImage": "/question-images/a1ffb8bec206deb7.webp",
+      "codes": [
+        "T02_03",
+        "T04_66"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-03-v2.jpeg",
+        "/question-images-topic-v2/t04-66-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a1ffb8bec206deb7.webp",
+      "sha256": "da9de30160ea3ce3dcbf6a604fe500be97a783b8002ed3d9372cf812db84713e"
+    },
+    {
+      "oldImage": "/question-images/a30096fa26196d6d.webp",
+      "codes": [
+        "T04_162"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-162-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a30096fa26196d6d.webp",
+      "sha256": "2bb36dd0b87134e276da09679ba4cd3adf406da04f5e9b371921e01ca5abe322"
+    },
+    {
+      "oldImage": "/question-images/a32e2f245e4a3d8a.webp",
+      "codes": [
+        "T04_03"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-03-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P01_12"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a32e2f245e4a3d8a.webp",
+      "sha256": "512e40632398c27da3431123545db62ecf4cba6cb920e0c853553b580129c241"
+    },
+    {
+      "oldImage": "/question-images/a42c564984f06e3a.webp",
+      "codes": [
+        "T01_12"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-12-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a42c564984f06e3a.webp",
+      "sha256": "b50ca5226ec029f28354b2fed16b9cfd441c9e3dd005bdbe543411b7cc610ec5"
+    },
+    {
+      "oldImage": "/question-images/a4e0810860ca04b9.webp",
+      "codes": [
+        "T04_160"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-160-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a4e0810860ca04b9.webp",
+      "sha256": "3ab2e57c8d8e29e299b785ace66198865555b943fee851fe6a4beecdccf4474d"
+    },
+    {
+      "oldImage": "/question-images/a53272c323dc291b.webp",
+      "codes": [
+        "T02_02"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-02-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a53272c323dc291b.webp",
+      "sha256": "0bf3ed05799cfa65e130462acdc0e250e3b7136cfe2e7dcf3ddc435f87660190"
+    },
+    {
+      "oldImage": "/question-images/a560e91711668a0e.webp",
+      "codes": [
+        "T04_104"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-104-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a560e91711668a0e.webp",
+      "sha256": "41027f8a52dbb7e356e95493e3ac7d84047f3fae9292d44b3b2ec6bab8a47fbc"
+    },
+    {
+      "oldImage": "/question-images/a620e2de9d905c4e.webp",
+      "codes": [
+        "T04_24"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-24-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a620e2de9d905c4e.webp",
+      "sha256": "0c42695160777aeb00ac23a685907bfa065276e5135894019b707072c796ecab"
+    },
+    {
+      "oldImage": "/question-images/a65941d0ef71b25c.webp",
+      "codes": [
+        "T04_107"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-107-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a65941d0ef71b25c.webp",
+      "sha256": "1bf65e64477fa9d4ccab990dfaef0b138e68ed3ad06f5561a0014d8e1c1c878c"
+    },
+    {
+      "oldImage": "/question-images/a80ce78fda8f7c37.webp",
+      "codes": [
+        "T04_05"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-05-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a80ce78fda8f7c37.webp",
+      "sha256": "41868daafeff514aa00b3d5eee1806f6ff28a8dc6a8f25133accebd2fcbede25"
+    },
+    {
+      "oldImage": "/question-images/a87a4bee08fbe445.webp",
+      "codes": [
+        "T02_45"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-45-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P02_15",
+        "P02_19",
+        "P02_21",
+        "P05_05"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a87a4bee08fbe445.webp",
+      "sha256": "7b46ea921195bf1db2485d966cfca075895103920b3be5feadf3d7aefd4ce1a8"
+    },
+    {
+      "oldImage": "/question-images/a968546107ace873.webp",
+      "codes": [
+        "T02_41"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-41-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/a968546107ace873.webp",
+      "sha256": "c2dd94e034f54bd15574c9266d797d7de8c51aecd4a37f152de437c15f1771f1"
+    },
+    {
+      "oldImage": "/question-images/aa6a4993b8dd63bb.webp",
+      "codes": [
+        "T04_36"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-36-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/aa6a4993b8dd63bb.webp",
+      "sha256": "77745540d5566b2ff919e3645699dc9b8947f8b0e8114b3927ca46dfeeb0357e"
+    },
+    {
+      "oldImage": "/question-images/abab5d46823bf00a.webp",
+      "codes": [
+        "T04_154"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-154-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/abab5d46823bf00a.webp",
+      "sha256": "4458b403da526ec8206589598b6d8ba4eed757303a42c3b1965ee18abf01ba3d"
+    },
+    {
+      "oldImage": "/question-images/abe66a95d1789b90.webp",
+      "codes": [
+        "T04_11"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-11-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/abe66a95d1789b90.webp",
+      "sha256": "6c5071c2c319216973c065a9afedd8b096d171293fe788ae48cc285ee85fe501"
+    },
+    {
+      "oldImage": "/question-images/aca0f5ea4813fa8b.webp",
+      "codes": [
+        "T04_123"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-123-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/aca0f5ea4813fa8b.webp",
+      "sha256": "5d6831f72f605414f48e923e7783532a85021a772b7c707a92d314bff7adc293"
+    },
+    {
+      "oldImage": "/question-images/ae32026fec18c957.webp",
+      "codes": [
+        "T05_14"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-14-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ae32026fec18c957.webp",
+      "sha256": "a0694e4be1db1195664f34641ab48ca5a5f321ca65852fc6a35e228934936c7c"
+    },
+    {
+      "oldImage": "/question-images/b1df446c597783b2.webp",
+      "codes": [
+        "T04_59"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-59-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b1df446c597783b2.webp",
+      "sha256": "626f875d8b625730d77defcf5952dc98ef0756a54ad127bd8b370a4d725de3e7"
+    },
+    {
+      "oldImage": "/question-images/b36d3dc805423aeb.webp",
+      "codes": [
+        "T04_70"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-70-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b36d3dc805423aeb.webp",
+      "sha256": "40c30e52770393a860397d831d30efc8a8ba643c52977a272faa008a5edac781"
+    },
+    {
+      "oldImage": "/question-images/b3ebf8afe95a4f20.webp",
+      "codes": [
+        "T04_143"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-143-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b3ebf8afe95a4f20.webp",
+      "sha256": "53d36f7c9d91c1cfec77502d91bfa758acaf3c522ea9f5526ee119cd4d92113e"
+    },
+    {
+      "oldImage": "/question-images/b6370b7f46eb1d39.webp",
+      "codes": [
+        "T04_21"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-21-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b6370b7f46eb1d39.webp",
+      "sha256": "9541526d0a0e818fec53654c929a5c886492161c268fa58b2c4a5c6c4bb9682e"
+    },
+    {
+      "oldImage": "/question-images/b71cbd05622e9676.webp",
+      "codes": [
+        "T04_132"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-132-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b71cbd05622e9676.webp",
+      "sha256": "ea05a1d6cc4c245ad05e3f8bde06c8bf90e8bd75ab9f45d6370e750e2336e414"
+    },
+    {
+      "oldImage": "/question-images/b7fc8f2bf2324639.webp",
+      "codes": [
+        "T04_47"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-47-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b7fc8f2bf2324639.webp",
+      "sha256": "88ea88bfb76f71b19b2b0cfd186ca77ee89faed05ea8900b0ff581d37f813f46"
+    },
+    {
+      "oldImage": "/question-images/b882dd5027efbb9a.webp",
+      "codes": [
+        "T04_17",
+        "T04_55",
+        "T04_62"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-17-v2.jpeg",
+        "/question-images-topic-v2/t04-55-v2.jpeg",
+        "/question-images-topic-v2/t04-62-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/b882dd5027efbb9a.webp",
+      "sha256": "be804a8655ec5104ed45af8db6a0d4ba8ce93e9e857245d6d6e8b0f1d8d00dd9"
+    },
+    {
+      "oldImage": "/question-images/bce9c3ead4f23af1.webp",
+      "codes": [
+        "T04_48"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-48-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/bce9c3ead4f23af1.webp",
+      "sha256": "1674f09d4fb8590ea4e509190cb0d4ea4c781cbc35b6395a0a0657146d84297f"
+    },
+    {
+      "oldImage": "/question-images/bd1d44364459db17.webp",
+      "codes": [
+        "T04_88"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-88-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/bd1d44364459db17.webp",
+      "sha256": "df0e80967b25225a4aca0e8dc2e9405a1faac2f2df52627a0a2c229290ed932f"
+    },
+    {
+      "oldImage": "/question-images/be28ed305cd0d1cc.webp",
+      "codes": [
+        "T02_12"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-12-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/be28ed305cd0d1cc.webp",
+      "sha256": "4afb04b5443fecdb81157932ba29f04adc9492f4c2de0f8a0adec7afed5ec5f7"
+    },
+    {
+      "oldImage": "/question-images/bfa4b3c90ae266a2.webp",
+      "codes": [
+        "T04_86"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-86-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/bfa4b3c90ae266a2.webp",
+      "sha256": "8054deb8d74a536b444e695b6130fef8e0459730eb66944946e9391c58f43fd6"
+    },
+    {
+      "oldImage": "/question-images/c03d7722b37e115b.webp",
+      "codes": [
+        "T02_09"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-09-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c03d7722b37e115b.webp",
+      "sha256": "cd3c53bddb69126167dc6b8209e7aec8e39fd391353663e986c800a3fb215a69"
+    },
+    {
+      "oldImage": "/question-images/c0a207b8f3e1efb2.webp",
+      "codes": [
+        "T04_37"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-37-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c0a207b8f3e1efb2.webp",
+      "sha256": "fe92c1a8e97f7d8606b2ff10a68b7377d22bdbd64e77ffd66d449840a18ed7c2"
+    },
+    {
+      "oldImage": "/question-images/c231a7b20ed1969f.webp",
+      "codes": [
+        "T03_02"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t03-02-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c231a7b20ed1969f.webp",
+      "sha256": "f5b4b42c28a0166e6969a42ee619740a9887b057314c9a4c9cc195b7ae51343c"
+    },
+    {
+      "oldImage": "/question-images/c4084589a1c42e45.webp",
+      "codes": [
+        "T04_98"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-98-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c4084589a1c42e45.webp",
+      "sha256": "f5b226d3f29d896976c4a5121de620ac889d2cfb7dba50468e45a260a69d6a62"
+    },
+    {
+      "oldImage": "/question-images/c64faa2653cf53ec.webp",
+      "codes": [
+        "T04_127"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-127-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c64faa2653cf53ec.webp",
+      "sha256": "9f1ff30f8b5d38beb4821c5ec1f959689a485681378d9dedfcb2d3c87e6cfa25"
+    },
+    {
+      "oldImage": "/question-images/c673064c1732adc8.webp",
+      "codes": [
+        "T05_25"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-25-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c673064c1732adc8.webp",
+      "sha256": "5e0b485dea1ebee5393c2c384c199a6c2473866b80f823f817e4e06d2622ae67"
+    },
+    {
+      "oldImage": "/question-images/c6e182299f384cd2.webp",
+      "codes": [
+        "T02_36",
+        "T02_37",
+        "T05_04",
+        "T05_11",
+        "T05_12",
+        "T05_13"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-36-v2.jpeg",
+        "/question-images-topic-v2/t02-37-v2.jpeg",
+        "/question-images-topic-v2/t05-04-v2.jpeg",
+        "/question-images-topic-v2/t05-11-v2.jpeg",
+        "/question-images-topic-v2/t05-12-v2.jpeg",
+        "/question-images-topic-v2/t05-13-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c6e182299f384cd2.webp",
+      "sha256": "90b8a7caa9965957bc8a12ecbff29618a7197f459cfb73b231c6503ccdb70fad"
+    },
+    {
+      "oldImage": "/question-images/c7d79a81661ffd3f.webp",
+      "codes": [
+        "T04_119"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-119-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/c7d79a81661ffd3f.webp",
+      "sha256": "5527c1df71af26e6a2266add2e1817c1cceecf241da736ea9e7ea227b09163de"
+    },
+    {
+      "oldImage": "/question-images/ca7a3ed261d3afef.webp",
+      "codes": [
+        "T04_83"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-83-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ca7a3ed261d3afef.webp",
+      "sha256": "5f4cd75046044b9dcc711cb1ab95add751e1adcb53771496dfdae845333a196c"
+    },
+    {
+      "oldImage": "/question-images/ca806f0345619376.webp",
+      "codes": [
+        "T04_28"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-28-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ca806f0345619376.webp",
+      "sha256": "e3774dccd747af3050a71d79b0c0d44240df80bc1000f842833e58bdaca2bedf"
+    },
+    {
+      "oldImage": "/question-images/ce2fa75967567be3.webp",
+      "codes": [
+        "T04_141"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-141-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ce2fa75967567be3.webp",
+      "sha256": "0f91c0b3102bdd838d92ead45342b2fd3d2201d9633a7eefdcf703600eb9f200"
+    },
+    {
+      "oldImage": "/question-images/cee438f712ba2744.webp",
+      "codes": [
+        "T04_01",
+        "T04_35"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-01-v2.jpeg",
+        "/question-images-topic-v2/t04-35-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/cee438f712ba2744.webp",
+      "sha256": "159f5f2e1b574b8eab3818484f73b65690d05b2bb6a4a228d72c763cc868ec66"
+    },
+    {
+      "oldImage": "/question-images/ceeb4237b20ad97e.webp",
+      "codes": [
+        "T02_42"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-42-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ceeb4237b20ad97e.webp",
+      "sha256": "78de8f5bcffad4073ac60f36694127da0654ae67a6942b02a7b62278a4448d67"
+    },
+    {
+      "oldImage": "/question-images/cfe8365fd97c6a98.webp",
+      "codes": [
+        "T04_06"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-06-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/cfe8365fd97c6a98.webp",
+      "sha256": "8593aab15879baef31a2f0e271a460a2b7c4a28f62614f411cc1bfb1b835dd96"
+    },
+    {
+      "oldImage": "/question-images/d0db4f0ca72df9a7.webp",
+      "codes": [
+        "T04_82"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-82-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d0db4f0ca72df9a7.webp",
+      "sha256": "c1640cb95e5851af45b3c837e1b82d52e208777e48aca4cad21cdd021803f236"
+    },
+    {
+      "oldImage": "/question-images/d0e49a52fef83bf3.webp",
+      "codes": [
+        "T01_04"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-04-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d0e49a52fef83bf3.webp",
+      "sha256": "12b1760a69d91fafced39d5b3739e402baa2edf4a79c9c6820bd6ecbb7d9227a"
+    },
+    {
+      "oldImage": "/question-images/d13721b01f136421.webp",
+      "codes": [
+        "T04_78"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-78-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d13721b01f136421.webp",
+      "sha256": "8d5e15a8cc35f975c19bab4c4182c23eda623e5be268c48e2bf462804f3ddd14"
+    },
+    {
+      "oldImage": "/question-images/d30adb4c4ad70a76.webp",
+      "codes": [
+        "T04_156"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-156-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d30adb4c4ad70a76.webp",
+      "sha256": "5c2be846d733e304406126cbec2f8387e079870d604f7e3999ba15859e44ff94"
+    },
+    {
+      "oldImage": "/question-images/d321e3bcc8ce30f8.webp",
+      "codes": [
+        "T01_01",
+        "T01_13"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-01-v2.jpeg",
+        "/question-images-topic-v2/t01-13-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d321e3bcc8ce30f8.webp",
+      "sha256": "57e86a0bf5739ae7006a46482246de62944f9f17bcd1821c76eabb726f66f845"
+    },
+    {
+      "oldImage": "/question-images/d655762a0c463929.webp",
+      "codes": [
+        "T02_30",
+        "T04_27"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-30-v2.jpeg",
+        "/question-images-topic-v2/t04-27-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P08_05",
+        "P08_11",
+        "P08_16",
+        "P08_19",
+        "P08_21"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d655762a0c463929.webp",
+      "sha256": "6a7a7fbcf23899d6b63627c6a6d3f3aad91a719fd9fa897c1eeb163324799ec7"
+    },
+    {
+      "oldImage": "/question-images/d65d8ed7f44f8f1a.webp",
+      "codes": [
+        "T04_09"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-09-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d65d8ed7f44f8f1a.webp",
+      "sha256": "c2b7c701107b97227c4d19264852a66f3df5967e7c6b2180b2055551981d1bdc"
+    },
+    {
+      "oldImage": "/question-images/d663a5817b9079dd.webp",
+      "codes": [
+        "T05_03"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-03-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/d663a5817b9079dd.webp",
+      "sha256": "ad7188080f303b20c6839f0384a282279a8bea8e467f1ccc6453d8605f1b5fcc"
+    },
+    {
+      "oldImage": "/question-images/db7315cded7f1de7.webp",
+      "codes": [
+        "T04_40"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-40-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/db7315cded7f1de7.webp",
+      "sha256": "a2813b034418c97727e27aaecfdf9ff13c50e6bc9fd9cdadccbb4850bae09b9e"
+    },
+    {
+      "oldImage": "/question-images/dc6273f1cf5e1bca.webp",
+      "codes": [
+        "T04_10"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-10-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/dc6273f1cf5e1bca.webp",
+      "sha256": "ca4b4fcc2b56414fb7cfbdffe088edccf4f7c84b529884d714aac88e8ddb7c30"
+    },
+    {
+      "oldImage": "/question-images/dcda673cd9e4f72b.webp",
+      "codes": [
+        "T04_26"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-26-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/dcda673cd9e4f72b.webp",
+      "sha256": "6f192c089d7b42b9efe817802b4d05fb64520f0a24ee80b5758810d48a09951a"
+    },
+    {
+      "oldImage": "/question-images/dd05b6f3c645a2dd.webp",
+      "codes": [
+        "T02_01"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-01-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/dd05b6f3c645a2dd.webp",
+      "sha256": "9c9afe206efdfb7656faccc1b853748eaf5982a3855d3f586ac46c9c1c01fd1d"
+    },
+    {
+      "oldImage": "/question-images/ddc6d188055c4894.webp",
+      "codes": [
+        "T04_99"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-99-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ddc6d188055c4894.webp",
+      "sha256": "c266169c8f1b27336cdae7c254b34897e8f13f8047fcc36564fdc531792d47e0"
+    },
+    {
+      "oldImage": "/question-images/df44644d716b64ae.webp",
+      "codes": [
+        "T01_05",
+        "T01_10"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-05-v2.jpeg",
+        "/question-images-topic-v2/t01-10-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/df44644d716b64ae.webp",
+      "sha256": "9d50b95132607f4ed63bc01f092560c2e10c31e03f8e54a426f3c9b0bbfef55a"
+    },
+    {
+      "oldImage": "/question-images/df62bbf11787c6f5.webp",
+      "codes": [
+        "T05_15",
+        "T05_26"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-15-v2.jpeg",
+        "/question-images-topic-v2/t05-26-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/df62bbf11787c6f5.webp",
+      "sha256": "fb7a2bce96099ed2bf9fa6f9c91c361dc303edbdd5b6c98482401605ea2fc2d0"
+    },
+    {
+      "oldImage": "/question-images/df9f72bb5b877d4d.webp",
+      "codes": [
+        "T04_109"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-109-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/df9f72bb5b877d4d.webp",
+      "sha256": "a0714f94ef68200774fd6226b3b1448bd78405d56d914028664aeebd2e5c202a"
+    },
+    {
+      "oldImage": "/question-images/e31c0ee42299f900.webp",
+      "codes": [
+        "T02_07",
+        "T02_19",
+        "T05_08"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-07-v2.jpeg",
+        "/question-images-topic-v2/t02-19-v2.jpeg",
+        "/question-images-topic-v2/t05-08-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P04_46",
+        "P04_58"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e31c0ee42299f900.webp",
+      "sha256": "05e855e8fce18a0e63502163585c9cf9ff24eceb37cb2fdaac62ed833747cd02"
+    },
+    {
+      "oldImage": "/question-images/e3cc932bbc0fa199.webp",
+      "codes": [
+        "T03_01",
+        "T04_117"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t03-01-v2.jpeg",
+        "/question-images-topic-v2/t04-117-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e3cc932bbc0fa199.webp",
+      "sha256": "09eb07d25ac65e34f97e0246a5ed0bb31ac21b7ff4c34cf5b87670b8391d0dfb"
+    },
+    {
+      "oldImage": "/question-images/e422f702fed2c4cc.webp",
+      "codes": [
+        "T05_20"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-20-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e422f702fed2c4cc.webp",
+      "sha256": "3118b5c8f9e2d32e02cea9b752ba6b148eec9991318e682ec5cab4e30c596457"
+    },
+    {
+      "oldImage": "/question-images/e66c1b72f8f5072e.webp",
+      "codes": [
+        "T04_51"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-51-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e66c1b72f8f5072e.webp",
+      "sha256": "faec6b9875007ceda8b758a922dcc9a372577a81bc95a23b5a2356c90fe6e6fd"
+    },
+    {
+      "oldImage": "/question-images/e7db58db5cc22ec8.webp",
+      "codes": [
+        "T05_06"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-06-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e7db58db5cc22ec8.webp",
+      "sha256": "a19296123637bd8e864159b38df3e82fecbb46b88d092f89223cef4175b2945a"
+    },
+    {
+      "oldImage": "/question-images/e8360d8a4479f01b.webp",
+      "codes": [
+        "T04_111"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-111-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/e8360d8a4479f01b.webp",
+      "sha256": "3524f4a1cbd311e8b15ccd3253662c25a5c913c128345f3b2cb7dc1e58b2063b"
+    },
+    {
+      "oldImage": "/question-images/ead43f5b02c67c79.webp",
+      "codes": [
+        "T04_84"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-84-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ead43f5b02c67c79.webp",
+      "sha256": "0523c98939cf11ed9b024f638f2dd9daf886489d8976e0fdda27dd17ae8fc556"
+    },
+    {
+      "oldImage": "/question-images/eecd75f6c41dd076.webp",
+      "codes": [
+        "T04_34"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-34-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/eecd75f6c41dd076.webp",
+      "sha256": "d769ed294df84fbda5d3dfca6edce1f02f7290a748eca6919b8c658de01af86f"
+    },
+    {
+      "oldImage": "/question-images/ef164b7f84005256.webp",
+      "codes": [
+        "T02_26",
+        "T02_27",
+        "T02_28"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t02-26-v2.jpeg",
+        "/question-images-topic-v2/t02-27-v2.jpeg",
+        "/question-images-topic-v2/t02-28-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ef164b7f84005256.webp",
+      "sha256": "e48c19e2c326041db9de6a0e05a744a65ddd6c6b4d9ced6a9c0207d0bab21922"
+    },
+    {
+      "oldImage": "/question-images/f3f6203e825b75fe.webp",
+      "codes": [
+        "T04_04",
+        "T04_50",
+        "T04_79",
+        "T04_105"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-04-v2.jpeg",
+        "/question-images-topic-v2/t04-50-v2.jpeg",
+        "/question-images-topic-v2/t04-79-v2.jpeg",
+        "/question-images-topic-v2/t04-105-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f3f6203e825b75fe.webp",
+      "sha256": "5821c52d1e8be58830bb9f15dec9392a7508574eaf2220b274b7cbce124946ca"
+    },
+    {
+      "oldImage": "/question-images/f7afda188317c172.webp",
+      "codes": [
+        "T04_65"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-65-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f7afda188317c172.webp",
+      "sha256": "6169b9610af48c73d65bd6f73e8b3e9bb6d2428731a59cb95e79dd41554cadf9"
+    },
+    {
+      "oldImage": "/question-images/f7dbda9a2021a86e.webp",
+      "codes": [
+        "T04_130"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-130-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f7dbda9a2021a86e.webp",
+      "sha256": "cab9eee08f04a271331b75eefe5074798f858123410baf739f730c7d3e7cae3a"
+    },
+    {
+      "oldImage": "/question-images/f89e8212b584a1c1.webp",
+      "codes": [
+        "T04_81"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-81-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f89e8212b584a1c1.webp",
+      "sha256": "d4dec39e2d29b400f390760c407c1396018aca8b771c9feb26402ff293928d60"
+    },
+    {
+      "oldImage": "/question-images/f8e1cc19c61a6632.webp",
+      "codes": [
+        "T05_23"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-23-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f8e1cc19c61a6632.webp",
+      "sha256": "8e414608a5e40d7afe76982932dae3e4495ab6b520ba059aba47e5bac88c6750"
+    },
+    {
+      "oldImage": "/question-images/f9fae4f586ee7766.webp",
+      "codes": [
+        "T04_116"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-116-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/f9fae4f586ee7766.webp",
+      "sha256": "875c16fb626d011415298dd467d21d8b1ca14a78bd2abd7c1b182c451ef201b5"
+    },
+    {
+      "oldImage": "/question-images/fa703bbd314dcfc0.webp",
+      "codes": [
+        "T04_97",
+        "T04_113"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-97-v2.jpeg",
+        "/question-images-topic-v2/t04-113-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/fa703bbd314dcfc0.webp",
+      "sha256": "384181700e499eed53d91621bda9153cf9c25342a410611c3ab55db186ca42fd"
+    },
+    {
+      "oldImage": "/question-images/fc6f7621f63b6ad4.webp",
+      "codes": [
+        "T04_110"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-110-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/fc6f7621f63b6ad4.webp",
+      "sha256": "a3617118798eda7d30d618db75d5eeb2922aea1d944fccdfbd81a99f30a2b06f"
+    },
+    {
+      "oldImage": "/question-images/fd490e8affb5cb9b.webp",
+      "codes": [
+        "T05_01"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t05-01-v2.jpeg"
+      ],
+      "activeReferences": [
+        "P02_12",
+        "P04_57",
+        "P05_01",
+        "P05_04",
+        "P05_07"
+      ],
+      "action": "copy",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/fd490e8affb5cb9b.webp",
+      "sha256": "8975af87b3d1b8a8896754f5b74d625350e3a0bf262e55485908c6c956f242d7"
+    },
+    {
+      "oldImage": "/question-images/fde633a558d18cd0.webp",
+      "codes": [
+        "T01_06"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t01-06-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/fde633a558d18cd0.webp",
+      "sha256": "c7c4300f3fce38337336ae8c1759bdda7347b6ead6389994c53f42cbc74c425f"
+    },
+    {
+      "oldImage": "/question-images/ff8cd713d738a09f.webp",
+      "codes": [
+        "T04_155"
+      ],
+      "newImages": [
+        "/question-images-topic-v2/t04-155-v2.jpeg"
+      ],
+      "activeReferences": [],
+      "action": "move",
+      "status": "archived",
+      "archivePath": "/question-images/旧图/专项题型类-T/ff8cd713d738a09f.webp",
+      "sha256": "6f75727c494fef2647cd28c6ad1df1e24dfb94518a16e28bc8d893bf830568ff"
+    }
+  ]
+}

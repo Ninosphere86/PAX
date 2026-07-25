@@ -142,7 +142,11 @@ def main() -> None:
     index = {
         "category": "专项题型类-T",
         "archivedAt": str(date.today()),
-        "destination": str(args.destination),
+        "destination": str(
+            args.destination.relative_to(ROOT)
+            if args.destination.is_relative_to(ROOT)
+            else args.destination
+        ),
         "items": archive_items,
     }
     (args.destination / "archive-index.json").write_text(
