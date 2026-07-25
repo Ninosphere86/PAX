@@ -7,6 +7,7 @@
 - 生产脚本：`scripts/manage_registration_pipeline.py`
 - 持久清单：`ops/registration-image-pipeline.json`
 - 当前批次：`work/registration-current-batch.json`
+- 批次总览：`work/registration-review-<首题号>-<末题号>.jpg`
 - 新图目录：`public/question-images-registration-v2/`
 - 旧图归档：`public/question-images/旧图/登记管理类-M/`
 
@@ -35,4 +36,13 @@ python scripts/manage_registration_pipeline.py archive --apply
 
 ## 审图协作
 
-图片上线后，在题库页面对具体题目点击“标记问题”，选择问题类型并填写修改要求。底部“审图修改清单”可以复制为结构化文本或下载 Markdown。修改清单中的题号、图片路径和定位链接可直接回写到生产清单的 `redo` 状态。
+每批图片完成后，`finalize_registration_batch.py` 会自动生成三列总览图。总览图直接在 Codex 对话中提供，不在题库页面增加审图功能。
+
+反馈时只需按总览图中的题号说明，例如：
+
+```text
+M01_02：警告标志距离看起来不足 150 米
+M01_05：车辆被盗抢的场景还不够明确
+```
+
+需要修改的题目在生产清单中标记为 `redo`，重做后重新生成该批次总览图。

@@ -2,16 +2,12 @@
 
 import { ChangeEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
-  ClipboardList,
-  Copy,
   Download,
   FileJson,
   FileSpreadsheet,
-  Flag,
   History,
   Image as ImageIcon,
   LayoutGrid,
-  Link as LinkIcon,
   Pencil,
   Plus,
   RefreshCw,
@@ -20,7 +16,6 @@ import {
   ShieldCheck,
   Star,
   Table2,
-  Trash2,
   Upload,
 } from "lucide-react";
 import sourceQuestions from "./question-bank.json";
@@ -91,11 +86,9 @@ type Question = {
 };
 
 const STORAGE_KEY = "pingan-question-bank-v10";
-const REVIEW_ISSUES_KEY = "pingan-question-bank-review-issues-v1";
 const PAGE_SIZE = 50;
 const FEATURED_PAGE_SIZE = 20;
 const OPTION_KEYS: OptionKey[] = ["A", "B", "C", "D"];
-const REVIEW_LABELS = ["表意不准确", "人/车关系错误", "道路/标线错误", "灯光/标志错误", "文字/数字错误", "图片质量问题"];
 const CATEGORY_RENAMES: Record<string, string> = {
   "B 类题目": "基础类-B",
   "S 类题目": "信号标志类-S",
@@ -302,10 +295,7 @@ export default function Home() {
   const [toast, setToast] = useState("");
   const [quiz, setQuiz] = useState<Question[]>([]);
   const [quizPage, setQuizPage] = useState(1);
-  const [zoomQuestion, setZoomQuestion] = useState<Question | null>(null);
-  const [reviewIssues, setReviewIssues] = useState<Record<string, string>>({});
-  const [reviewIssuesReady, setReviewIssuesReady] = useState(false);
-  const [issueEditor, setIssueEditor] = useState<string | null>(null);
+  const [zoomImage, setZoomImage] = useState("");
   const [workspaceRole, setWorkspaceRole] = useState<WorkspaceRole>("viewer");
   const [workspaceUser, setWorkspaceUser] = useState<WorkspaceUser | null>(null);
   const [auditLogs, setAuditLogs] = useState<AuditLog[]>([]);
@@ -319,35 +309,6 @@ export default function Home() {
   const [exportingJson, setExportingJson] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const canEditQuestions = workspaceRole === "admin" || workspaceRole === "editor";
-
-  useEffect(() => {
-    const targetedCode = new URLSearchParams(window.location.search).get("q");
-    let storedIssues: Record<string, string> | null = null;
-    try {
-      const stored = localStorage.getItem(REVIEW_ISSUES_KEY);
-      if (stored) storedIssues = JSON.parse(stored) as Record<string, string>;
-    } catch {
-      // A malformed local review draft should not block the shared question bank.
-    }
-    const timer = window.setTimeout(() => {
-      if (targetedCode) {
-        setQuery(targetedCode);
-        setViewMode("review");
-      }
-      if (storedIssues) setReviewIssues(storedIssues);
-      setReviewIssuesReady(true);
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!reviewIssuesReady) return;
-    try {
-      localStorage.setItem(REVIEW_ISSUES_KEY, JSON.stringify(reviewIssues));
-    } catch {
-      // Review drafts are an optional local convenience.
-    }
-  }, [reviewIssues, reviewIssuesReady]);
 
   useEffect(() => {
     let active = true;
@@ -453,89 +414,6 @@ export default function Home() {
   const flash = (message: string) => {
     setToast(message);
     window.setTimeout(() => setToast(""), 2400);
-  };
-
-  const copyText = async (content: string, successMessage: string) => {
-    try {
-      await navigator.clipboard.writeText(content);
-      flash(successMessage);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = content;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      textarea.remove();
-      flash(successMessage);
-    }
-  };
-
-  const questionLink = (code: string) => {
-    const url = new URL(window.location.href);
-    url.search = "";
-    url.searchParams.set("q", code);
-    return url.toString();
-  };
-
-  const copyQuestionReference = (question: Question) => {
-    void copyText(
-      `${question.code}｜${question.title}\n图片：${question.image || "无图片"}\n定位：${questionLink(question.code)}`,
-      `已复制 ${question.code} 的题目引用`,
-    );
-  };
-
-  const toggleIssueEditor = (question: Question) => {
-    if (!(question.code in reviewIssues)) {
-      setReviewIssues((current) => ({ ...current, [question.code]: "" }));
-    }
-    setIssueEditor((current) => (current === question.code ? null : question.code));
-  };
-
-  const appendReviewLabel = (code: string, label: string) => {
-    setReviewIssues((current) => {
-      const existing = current[code] || "";
-      if (existing.includes(label)) return current;
-      return { ...current, [code]: existing ? `${existing}；${label}` : label };
-    });
-  };
-
-  const removeReviewIssue = (code: string) => {
-    setReviewIssues((current) => {
-      const next = { ...current };
-      delete next[code];
-      return next;
-    });
-    setIssueEditor((current) => (current === code ? null : current));
-    flash(`已移除 ${code} 的问题标记`);
-  };
-
-  const reviewIssueQuestions = questions.filter((question) => question.code in reviewIssues);
-  const buildReviewIssueList = () => [
-    "# 题库图片修改清单",
-    "",
-    ...reviewIssueQuestions.flatMap((question, index) => [
-      `## ${index + 1}. ${question.code}`,
-      `- 题目：${question.title}`,
-      `- 图片：${question.image || "无图片"}`,
-      `- 定位链接：${questionLink(question.code)}`,
-      `- 修改要求：${reviewIssues[question.code]?.trim() || "待补充"}`,
-      "",
-    ]),
-  ].join("\n");
-
-  const copyReviewIssueList = () => {
-    void copyText(buildReviewIssueList(), `已复制 ${reviewIssueQuestions.length} 道题的修改清单`);
-  };
-
-  const downloadReviewIssueList = () => {
-    downloadTextFile(
-      `题库图片修改清单-${new Date().toISOString().slice(0, 10)}.md`,
-      buildReviewIssueList(),
-      "text/markdown;charset=utf-8",
-    );
-    flash(`已导出 ${reviewIssueQuestions.length} 道题的修改清单`);
   };
 
   const resetFilters = () => {
@@ -847,27 +725,11 @@ export default function Home() {
           {viewMode === "review" ? (
             <div className="review-grid">
               {pagedQuestions.map((question) => (
-                <article className={`review-card ${question.code in reviewIssues ? "has-issue" : ""}`} key={question.id} id={`question-${question.code}`}>
-                  <header>
-                    <div><code>{question.code}</code><span>{question.section}</span></div>
-                    <div className="review-card-actions">
-                      <button onClick={() => copyQuestionReference(question)} title="复制题号、题干、图片路径和定位链接"><Copy aria-hidden="true" />复制题目</button>
-                      <button className={question.code in reviewIssues ? "issue-active" : ""} onClick={() => toggleIssueEditor(question)}><Flag aria-hidden="true" />{question.code in reviewIssues ? "已标记" : "标记问题"}</button>
-                      {canEditQuestions && <button onClick={() => openEditor(question)}><Pencil aria-hidden="true" />编辑</button>}
-                    </div>
-                  </header>
+                <article className="review-card" key={question.id}>
+                  <header><div><code>{question.code}</code><span>{question.section}</span></div>{canEditQuestions && <button onClick={() => openEditor(question)}><Pencil aria-hidden="true" />编辑</button>}</header>
                   <div className="miniapp-frame">
-                    {question.image ? <button className="image-button" onClick={() => setZoomQuestion(question)} title="点击查看原图与题目信息"><img src={question.image} alt={`${question.code} 题图`} loading="lazy" /></button> : <div className="no-image">本题无图片</div>}
+                    {question.image ? <button className="image-button" onClick={() => setZoomImage(question.image)} title="点击查看原图"><img src={question.image} alt={`${question.code} 题图`} loading="lazy" /></button> : <div className="no-image">本题无图片</div>}
                   </div>
-                  <div className="review-reference"><span title={question.image}>{question.image ? question.image.split("/").pop() : "无图片"}</span><button onClick={() => void copyText(questionLink(question.code), `已复制 ${question.code} 定位链接`)}><LinkIcon aria-hidden="true" />复制定位链接</button></div>
-                  {issueEditor === question.code && (
-                    <div className="issue-editor">
-                      <div className="issue-editor-head"><strong>这张图需要怎么改？</strong><button onClick={() => removeReviewIssue(question.code)}><Trash2 aria-hidden="true" />移除标记</button></div>
-                      <div className="issue-labels">{REVIEW_LABELS.map((label) => <button key={label} onClick={() => appendReviewLabel(question.code, label)}>{label}</button>)}</div>
-                      <textarea rows={3} value={reviewIssues[question.code] || ""} onChange={(event) => setReviewIssues((current) => ({ ...current, [question.code]: event.target.value }))} placeholder="例如：警告牌应在事故车后方150米以外；应急车道宽度不准确。" />
-                      <small>内容自动保存在当前浏览器，可在页面底部一次复制给 Codex。</small>
-                    </div>
-                  )}
                   <div className="review-copy"><h3>{question.title}</h3><div className="review-options">{OPTION_KEYS.filter((key) => question.options[key]).map((key) => <p key={key}><b>{key}</b>{question.options[key]}</p>)}</div><details><summary>答案与解析</summary><p><strong>{answerText(question)}</strong><br />{question.explanation}<br />{question.detailedExplanation}</p></details></div>
                 </article>
               ))}
@@ -988,15 +850,7 @@ export default function Home() {
         </div>
       )}
 
-      {reviewIssueQuestions.length > 0 && (
-        <aside className="review-issue-dock" aria-label="审图修改清单">
-          <div><ClipboardList aria-hidden="true" /><span><strong>已标记 {reviewIssueQuestions.length} 道题</strong><small>填写问题后一次发给 Codex</small></span></div>
-          <button className="ghost" onClick={downloadReviewIssueList}><Download aria-hidden="true" />下载 MD</button>
-          <button className="primary" onClick={copyReviewIssueList}><Copy aria-hidden="true" />复制修改清单</button>
-        </aside>
-      )}
-
-      {zoomQuestion && <div className="image-lightbox" onClick={() => setZoomQuestion(null)}><button className="lightbox-close" aria-label="关闭原图">×</button><div className="lightbox-content" onClick={(event) => event.stopPropagation()}><img src={zoomQuestion.image} alt={`${zoomQuestion.code} 题目原图`} /><div className="lightbox-caption"><div><code>{zoomQuestion.code}</code><strong>{zoomQuestion.title}</strong><small>{zoomQuestion.image}</small></div><button className="ghost" onClick={() => copyQuestionReference(zoomQuestion)}><Copy aria-hidden="true" />复制题目信息</button><button className="primary" onClick={() => { toggleIssueEditor(zoomQuestion); setZoomQuestion(null); }}><Flag aria-hidden="true" />标记需要修改</button></div></div></div>}
+      {zoomImage && <div className="image-lightbox" onClick={() => setZoomImage("")}><button aria-label="关闭原图">×</button><img src={zoomImage} alt="题目原图" /></div>}
 
       <input ref={fileInput} type="file" accept="application/json,.json" hidden onChange={importJson} />
       {toast && <div className="toast" role="status">{toast}</div>}

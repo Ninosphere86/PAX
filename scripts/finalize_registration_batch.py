@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -84,9 +85,51 @@ def finalize(item: dict) -> None:
     print(f"{item['code']}: {source.relative_to(ROOT)} -> {destination.relative_to(ROOT)}")
 
 
+def build_contact_sheet(items: list[dict], destination: Path) -> None:
+    columns = min(3, len(items))
+    tile_width = 480
+    image_height = 270
+    label_height = 42
+    rows = math.ceil(len(items) / columns)
+    sheet = Image.new(
+        "RGB",
+        (columns * tile_width, rows * (image_height + label_height)),
+        "white",
+    )
+    draw = ImageDraw.Draw(sheet)
+    label_font = ImageFont.truetype(str(FONT), size=24, index=0)
+
+    for index, item in enumerate(items):
+        row, column = divmod(index, columns)
+        x = column * tile_width
+        y = row * (image_height + label_height)
+        with Image.open(item["outputPath"]) as source:
+            preview = ImageOps.fit(
+                source.convert("RGB"),
+                (tile_width, image_height),
+                method=Image.Resampling.LANCZOS,
+            )
+        sheet.paste(preview, (x, y))
+        draw.text(
+            (x + 14, y + image_height + 7),
+            item["code"],
+            fill=(17, 30, 21),
+            font=label_font,
+        )
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    sheet.save(destination, format="JPEG", quality=88, optimize=True)
+    print(f"Contact sheet: {destination.relative_to(ROOT)}")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("codes", nargs="*", help="Question codes; defaults to every item in the batch")
+    parser.add_argument(
+        "--sheet",
+        type=Path,
+        help="Contact-sheet output path; defaults to work/registration-review-<first>-<last>.jpg",
+    )
     return parser.parse_args()
 
 
@@ -102,6 +145,12 @@ def main() -> None:
         raise ValueError("Unknown batch codes: " + ", ".join(sorted(missing)))
     for item in selected:
         finalize(item)
+    default_sheet = (
+        ROOT
+        / "work"
+        / f"registration-review-{selected[0]['code']}-{selected[-1]['code']}.jpg"
+    )
+    build_contact_sheet(selected, args.sheet or default_sheet)
 
 
 if __name__ == "__main__":
