@@ -70,7 +70,7 @@ $PYTHON_BIN scripts/archive_replaced_topic_images.py
 $PYTHON_BIN scripts/archive_replaced_topic_images.py --apply
 ```
 
-默认归档到 `public/question-images/旧图/专项题型类-T/`，并生成 `archive-index.json`，记录旧图、新图、题号和 SHA-256。
+默认归档到工作区本地 `题库图片/旧图/专项题型类-T/`，并生成 `archive-index.json`，记录旧图、新图、题号和 SHA-256。该目录位于站点项目外，不进入 Git、网站构建产物或线上服务器。
 
 - 已无题目引用的旧图会移动到归档目录。
 - 仍被其他分类引用的共享旧图只复制归档，不移动源文件，避免破坏其他题目。

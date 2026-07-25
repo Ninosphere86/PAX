@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 QUESTION_BANK = ROOT / "app" / "question-bank.json"
 MANIFEST = ROOT / "ops" / "special-topic-image-pipeline.json"
-DEFAULT_DESTINATION = ROOT / "public" / "question-images" / "旧图" / "专项题型类-T"
+DEFAULT_DESTINATION = ROOT.parent / "题库图片" / "旧图" / "专项题型类-T"
 
 
 def sha256(path: Path) -> str:
@@ -44,7 +44,7 @@ def parse_args() -> argparse.Namespace:
         "--destination",
         type=Path,
         default=DEFAULT_DESTINATION,
-        help="Archive folder; defaults to the question-images/旧图 folder.",
+        help="Archive folder; defaults to the local 题库图片/旧图 folder outside the site.",
     )
     parser.add_argument(
         "--apply",
@@ -134,7 +134,11 @@ def main() -> None:
             {
                 **{key: value for key, value in item.items() if key != "source"},
                 "status": "archived",
-                "archivePath": "/" + str(destination.relative_to(ROOT / "public")),
+                "archivePath": str(
+                    destination.relative_to(ROOT.parent)
+                    if destination.is_relative_to(ROOT.parent)
+                    else destination
+                ),
                 "sha256": file_hash,
             }
         )

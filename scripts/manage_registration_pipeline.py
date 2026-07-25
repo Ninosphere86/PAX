@@ -19,7 +19,8 @@ QUESTION_BANK = ROOT / "app" / "question-bank.json"
 MANIFEST = ROOT / "ops" / "registration-image-pipeline.json"
 CURRENT_BATCH = ROOT / "work" / "registration-current-batch.json"
 IMAGE_DIR = ROOT / "public" / "question-images-registration-v2"
-ARCHIVE_DIR = ROOT / "public" / "question-images" / "旧图" / "登记管理类-M"
+LOCAL_ARCHIVE_ROOT = ROOT.parent / "题库图片" / "旧图"
+ARCHIVE_DIR = LOCAL_ARCHIVE_ROOT / "登记管理类-M"
 CATEGORY = "登记管理类-M"
 VALID_STATUSES = {"pending", "generated", "approved", "redo", "review_required"}
 
@@ -341,13 +342,25 @@ def archive_replaced(apply: bool) -> list[dict]:
         if apply:
             ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
             previous = previous_records.get(old_image)
-            previous_destination = (
-                ROOT / "public" / previous["archivePath"].lstrip("/")
-                if previous
-                else None
-            )
+            previous_destination = None
+            if previous:
+                saved_path = previous["archivePath"]
+                if saved_path.startswith("/question-images/旧图/"):
+                    previous_destination = (
+                        LOCAL_ARCHIVE_ROOT
+                        / saved_path.removeprefix("/question-images/旧图/")
+                    )
+                else:
+                    candidate = Path(saved_path)
+                    previous_destination = (
+                        candidate
+                        if candidate.is_absolute()
+                        else ROOT.parent / candidate
+                    )
             if previous_destination and previous_destination.is_file():
-                record["archivePath"] = previous["archivePath"]
+                record["archivePath"] = str(
+                    previous_destination.relative_to(ROOT.parent)
+                )
                 record["sha256"] = hashlib.sha256(
                     previous_destination.read_bytes()
                 ).hexdigest()
@@ -365,7 +378,7 @@ def archive_replaced(apply: bool) -> list[dict]:
                     shutil.move(str(source), str(destination))
                 else:
                     shutil.copy2(source, destination)
-                record["archivePath"] = "/" + str(destination.relative_to(ROOT / "public"))
+                record["archivePath"] = str(destination.relative_to(ROOT.parent))
                 record["sha256"] = hashlib.sha256(destination.read_bytes()).hexdigest()
                 record["status"] = "archived"
             else:

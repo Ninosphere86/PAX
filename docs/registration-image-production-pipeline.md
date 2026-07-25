@@ -9,7 +9,7 @@
 - 当前批次：`work/registration-current-batch.json`
 - 批次总览：`work/registration-review-<首题号>-<末题号>.jpg`
 - 新图目录：`public/question-images-registration-v2/`
-- 旧图归档：`public/question-images/旧图/登记管理类-M/`
+- 旧图归档：工作区本地 `题库图片/旧图/登记管理类-M/`（位于站点项目外）
 
 ## 状态
 
@@ -48,3 +48,5 @@ M01_05：车辆被盗抢的场景还不够明确
 ```
 
 需要修改的题目在生产清单中标记为 `redo`，重做后重新生成该批次总览图。
+
+旧图只保存在工作区本地 `题库图片/旧图/`，不进入 Git、网站构建产物或线上服务器。
