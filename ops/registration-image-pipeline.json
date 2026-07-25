@@ -1,0 +1,548 @@
+{
+  "category": "登记管理类-M",
+  "schemaVersion": 1,
+  "batchSize": 6,
+  "updatedAt": "2026-07-25",
+  "items": [
+    {
+      "code": "M01_01",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-01-v2.jpeg",
+      "sourceImage": "/question-images/e89c367561d78962.webp",
+      "questionHash": "9d6205252a29dde0",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_02",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-02-v2.jpeg",
+      "sourceImage": "/question-images/3d9018c28164d315.webp",
+      "questionHash": "a5a5a7e429689587",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_03",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-03-v2.jpeg",
+      "sourceImage": "/question-images/3ce53425f2334a76.webp",
+      "questionHash": "a8904e0018f3f0d8",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_04",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-04-v2.jpeg",
+      "sourceImage": "/question-images/db80ef803ba67268.webp",
+      "questionHash": "bc089354ac82212e",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_05",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-05-v2.jpeg",
+      "sourceImage": "/question-images/47458221f0c572c5.webp",
+      "questionHash": "db70c3f39d1dadf2",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_06",
+      "section": "M01",
+      "status": "approved",
+      "outputImage": "/question-images-registration-v2/m01-06-v2.jpeg",
+      "sourceImage": "/question-images/47458221f0c572c5.webp",
+      "questionHash": "a160df561c5ee327",
+      "updatedAt": "2026-07-25",
+      "note": "首批内部视觉核对通过，进入页面审图"
+    },
+    {
+      "code": "M01_07",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-07-v2.jpeg",
+      "sourceImage": "/question-images/4106dc2d8d8f375b.webp",
+      "questionHash": "af8381bb4fda53f1",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_08",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-08-v2.jpeg",
+      "sourceImage": "/question-images/9c8e6e51024d07f5.webp",
+      "questionHash": "f1da28f8d1e9128c",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_09",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-09-v2.jpeg",
+      "sourceImage": "/question-images/640df12d4b5d59e2.webp",
+      "questionHash": "4d7d8b59f1f82844",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_10",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-10-v2.jpeg",
+      "sourceImage": "/question-images/f33e517026431614.webp",
+      "questionHash": "858ea7f0be6320c4",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_11",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-11-v2.jpeg",
+      "sourceImage": "/question-images/ff995d1c1ddd08a9.webp",
+      "questionHash": "80a0ed68ac3c524e",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_12",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-12-v2.jpeg",
+      "sourceImage": "/question-images/942f5bb1d7d09766.webp",
+      "questionHash": "ac358d0ed22b3746",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_13",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-13-v2.jpeg",
+      "sourceImage": "/question-images/f1c8700ef350222b.webp",
+      "questionHash": "f4dbe0533be85a7f",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_14",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-14-v2.jpeg",
+      "sourceImage": "/question-images/2f52017df6f55071.webp",
+      "questionHash": "e3f04118c155e3d6",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M01_15",
+      "section": "M01",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m01-15-v2.jpeg",
+      "sourceImage": "/question-images/877d5427c6652cdb.webp",
+      "questionHash": "5d22c1282fbae5a0",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_01",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-01-v2.jpeg",
+      "sourceImage": "/question-images/05bf9ff5d72d3285.webp",
+      "questionHash": "4e4738b2e74dbd28",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_02",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-02-v2.jpeg",
+      "sourceImage": "/question-images/77898fb4afcc6b8a.webp",
+      "questionHash": "06653610952e216b",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_03",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-03-v2.jpeg",
+      "sourceImage": "/question-images/05bf9ff5d72d3285.webp",
+      "questionHash": "0b029412efaaaa13",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_04",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-04-v2.jpeg",
+      "sourceImage": "/question-images/77898fb4afcc6b8a.webp",
+      "questionHash": "35a4f99a70d0151c",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_05",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-05-v2.jpeg",
+      "sourceImage": "/question-images/77898fb4afcc6b8a.webp",
+      "questionHash": "e16a628fdbc8d4cb",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_06",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-06-v2.jpeg",
+      "sourceImage": "/question-images/0151331d050cdcf9.webp",
+      "questionHash": "d3da1c9ab8b726a8",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_07",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-07-v2.jpeg",
+      "sourceImage": "/question-images/77898fb4afcc6b8a.webp",
+      "questionHash": "a0ff9dfd73074ff3",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_08",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-08-v2.jpeg",
+      "sourceImage": "/question-images/77898fb4afcc6b8a.webp",
+      "questionHash": "bdccfa1c6799c1d0",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_09",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-09-v2.jpeg",
+      "sourceImage": "/question-images/47458221f0c572c5.webp",
+      "questionHash": "5dad65666d4d42d5",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_10",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-10-v2.jpeg",
+      "sourceImage": "/question-images/bcbd07e42b572a0b.webp",
+      "questionHash": "8559e7090e6798f5",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_11",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-11-v2.jpeg",
+      "sourceImage": "/question-images/69c3ec6f3c081955.webp",
+      "questionHash": "b6dc38a9b473c643",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M02_12",
+      "section": "M02",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m02-12-v2.jpeg",
+      "sourceImage": "/question-images/05bf9ff5d72d3285.webp",
+      "questionHash": "0f9ba67910045c3c",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_01",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-01-v2.jpeg",
+      "sourceImage": "/question-images/e3b5c1cd82947b40.webp",
+      "questionHash": "12ad4a73fa2b87db",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_02",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-02-v2.jpeg",
+      "sourceImage": "/question-images/e3b5c1cd82947b40.webp",
+      "questionHash": "9d1603280ef1511d",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_03",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-03-v2.jpeg",
+      "sourceImage": "/question-images/0bbf3534d603202e.webp",
+      "questionHash": "ff687b136f3b0e00",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_04",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-04-v2.jpeg",
+      "sourceImage": "/question-images/f22a285cb052205e.webp",
+      "questionHash": "918151974857e0b4",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_05",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-05-v2.jpeg",
+      "sourceImage": "/question-images/fcc2ec236c7e42c3.webp",
+      "questionHash": "c220487d59657d2f",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_06",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-06-v2.jpeg",
+      "sourceImage": "/question-images/636d58b6123113bd.webp",
+      "questionHash": "d597c4f8868cf74f",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_07",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-07-v2.jpeg",
+      "sourceImage": "/question-images/7a7591b1232831c7.webp",
+      "questionHash": "a9fbe21c1dc7c9c8",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_08",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-08-v2.jpeg",
+      "sourceImage": "/question-images/fcc2ec236c7e42c3.webp",
+      "questionHash": "39918a6a06dbeafa",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_09",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-09-v2.jpeg",
+      "sourceImage": "/question-images/aab32a3d130c06cd.webp",
+      "questionHash": "e03375e9d810e94c",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_10",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-10-v2.jpeg",
+      "sourceImage": "/question-images/7a7591b1232831c7.webp",
+      "questionHash": "042a6f14a9cb8b7d",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_11",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-11-v2.jpeg",
+      "sourceImage": "/question-images/aab32a3d130c06cd.webp",
+      "questionHash": "d7cc291e18395bbe",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_12",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-12-v2.jpeg",
+      "sourceImage": "/question-images/7a7591b1232831c7.webp",
+      "questionHash": "4dd1460c5368cc01",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_13",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-13-v2.jpeg",
+      "sourceImage": "/question-images/fcc2ec236c7e42c3.webp",
+      "questionHash": "ae43db002e3e3d9e",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_14",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-14-v2.jpeg",
+      "sourceImage": "/question-images/e3b5c1cd82947b40.webp",
+      "questionHash": "d5977ed7dae2d060",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_15",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-15-v2.jpeg",
+      "sourceImage": "/question-images/aab32a3d130c06cd.webp",
+      "questionHash": "fe37e6e47417884f",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_16",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-16-v2.jpeg",
+      "sourceImage": "/question-images/e3b5c1cd82947b40.webp",
+      "questionHash": "aaec53dbf405c540",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_17",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-17-v2.jpeg",
+      "sourceImage": "/question-images/7fe7f4893db5d261.webp",
+      "questionHash": "ff1ffbe64994d8d7",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_18",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-18-v2.jpeg",
+      "sourceImage": "/question-images/7fe7f4893db5d261.webp",
+      "questionHash": "47280ab61d48260b",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_19",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-19-v2.jpeg",
+      "sourceImage": "/question-images/7fe7f4893db5d261.webp",
+      "questionHash": "c8d6e89a665c57ec",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_20",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-20-v2.jpeg",
+      "sourceImage": "/question-images/db54ea9622a6152c.webp",
+      "questionHash": "3a694c57f845f029",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_21",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-21-v2.jpeg",
+      "sourceImage": "/question-images/5d2097d5eb544c41.webp",
+      "questionHash": "191ea78cec153a37",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_22",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-22-v2.jpeg",
+      "sourceImage": "/question-images/a20b5a5e712e6d3f.webp",
+      "questionHash": "9bf3fce27f68b455",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_23",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-23-v2.jpeg",
+      "sourceImage": "/question-images/fcc2ec236c7e42c3.webp",
+      "questionHash": "186848b4cba96a18",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_24",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-24-v2.jpeg",
+      "sourceImage": "/question-images/e3b5c1cd82947b40.webp",
+      "questionHash": "88e7ca4d4cff022c",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_25",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-25-v2.jpeg",
+      "sourceImage": "/question-images/cd0a083fb065f6fb.webp",
+      "questionHash": "2d2089eb7c66e59b",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_26",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-26-v2.jpeg",
+      "sourceImage": "/question-images/ef763e19701d5e9e.webp",
+      "questionHash": "d86cefdb526e62f4",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    },
+    {
+      "code": "M03_27",
+      "section": "M03",
+      "status": "pending",
+      "outputImage": "/question-images-registration-v2/m03-27-v2.jpeg",
+      "sourceImage": "/question-images/c7c820834b78b337.webp",
+      "questionHash": "7ee4e49bbd871f5d",
+      "updatedAt": "2026-07-25",
+      "note": ""
+    }
+  ]
+}
