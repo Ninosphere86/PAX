@@ -1167,82 +1167,82 @@
     {
       "code": "T04_73",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-73-v2.jpeg",
       "sourceImage": "/question-images/065360afed233b09.webp",
       "questionHash": "886bc435ace89438",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_74",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-74-v2.jpeg",
       "sourceImage": "/question-images/68976bdf5546a2e8.webp",
       "questionHash": "b08f2c4b6536d10d",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_75",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-75-v2.jpeg",
       "sourceImage": "/question-images/927d6bff8f088dd8.webp",
       "questionHash": "558aff3dc3a75934",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_76",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-76-v2.jpeg",
       "sourceImage": "/question-images/53ff36b97ed352b7.webp",
       "questionHash": "7caa994bc6cbc6f7",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_77",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-77-v2.jpeg",
       "sourceImage": "/question-images/97b2ce6a4a3defb3.webp",
       "questionHash": "977909b9f2598abb",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_78",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-78-v2.jpeg",
       "sourceImage": "/question-images/d13721b01f136421.webp",
       "questionHash": "dc420f442f69fa0e",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_79",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-79-v2.jpeg",
       "sourceImage": "/question-images/f3f6203e825b75fe.webp",
       "questionHash": "f461e769aa848544",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_80",
       "section": "T04",
-      "status": "pending",
+      "status": "approved",
       "outputImage": "/question-images-topic-v2/t04-80-v2.jpeg",
       "sourceImage": "/question-images/88862a9ea7c0da87.webp",
       "questionHash": "9afabd16ceaee1cd",
       "updatedAt": "2026-07-25",
-      "note": ""
+      "note": "2026-07-25 batch QA passed"
     },
     {
       "code": "T04_81",
