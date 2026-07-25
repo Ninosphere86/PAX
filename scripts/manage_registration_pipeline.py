@@ -316,6 +316,16 @@ def archive_replaced(apply: bool) -> list[dict]:
         if item["sourceImage"] and item["sourceImage"] != item["outputImage"]:
             grouped[item["sourceImage"]].append(item)
 
+    index_path = ARCHIVE_DIR / "archive-index.json"
+    previous_records = {}
+    if index_path.is_file():
+        previous_index = json.loads(index_path.read_text(encoding="utf-8"))
+        previous_records = {
+            item["oldImage"]: item
+            for item in previous_index.get("items", [])
+            if item.get("status") == "archived" and item.get("archivePath")
+        }
+
     plan = []
     for old_image, items in sorted(grouped.items()):
         source = ROOT / "public" / old_image.lstrip("/")
@@ -330,6 +340,21 @@ def archive_replaced(apply: bool) -> list[dict]:
         }
         if apply:
             ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+            previous = previous_records.get(old_image)
+            previous_destination = (
+                ROOT / "public" / previous["archivePath"].lstrip("/")
+                if previous
+                else None
+            )
+            if previous_destination and previous_destination.is_file():
+                record["archivePath"] = previous["archivePath"]
+                record["sha256"] = hashlib.sha256(
+                    previous_destination.read_bytes()
+                ).hexdigest()
+                record["status"] = "archived"
+                plan.append(record)
+                continue
+
             destination = ARCHIVE_DIR / source.name
             index = 2
             while destination.exists() and source.exists():
@@ -348,7 +373,6 @@ def archive_replaced(apply: bool) -> list[dict]:
         plan.append(record)
 
     if apply:
-        index_path = ARCHIVE_DIR / "archive-index.json"
         index_path.write_text(
             json.dumps(
                 {

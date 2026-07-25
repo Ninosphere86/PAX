@@ -25,6 +25,7 @@
 
 - 默认每批 8 题。
 - 一次只生成一个批次，不把全部 236 条长提示词载入任务上下文。
+- 所有图片统一遵循 [`docs/image-review-standards.md`](image-review-standards.md)：主题必须是画面最显著内容，并通过约 360px 宽的手机预览测试。
 - 每批顺序：
   1. 从清单提取 `pending` 或 `redo`。
   2. 逐题生成并保存到固定路径。

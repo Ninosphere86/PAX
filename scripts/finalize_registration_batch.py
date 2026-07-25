@@ -38,6 +38,20 @@ def fitted_font(draw: ImageDraw.ImageDraw, text: str, max_width: int) -> ImageFo
     return ImageFont.truetype(str(FONT), size=31, index=0)
 
 
+def add_distance_marker(canvas: Image.Image) -> None:
+    draw = ImageDraw.Draw(canvas, "RGBA")
+    marker_font = ImageFont.truetype(str(FONT), size=78, index=0)
+    draw.text(
+        (855, 320),
+        "150米",
+        font=marker_font,
+        anchor="mm",
+        fill=(24, 135, 214, 255),
+        stroke_width=7,
+        stroke_fill=(255, 255, 255, 235),
+    )
+
+
 def finalize(item: dict) -> None:
     source = find_raw(item["code"])
     destination = Path(item["outputPath"])
@@ -51,6 +65,9 @@ def finalize(item: dict) -> None:
             method=Image.Resampling.LANCZOS,
             centering=(0.5, 0.40),
         )
+
+    if item["code"] == "M01_02":
+        add_distance_marker(canvas)
 
     overlay = Image.new("RGBA", OUTPUT_SIZE, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)

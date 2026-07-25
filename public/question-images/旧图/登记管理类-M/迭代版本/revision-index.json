@@ -1,0 +1,51 @@
+{
+  "category": "登记管理类-M",
+  "archivedAt": "2026-07-25",
+  "items": [
+    {
+      "code": "M01_01",
+      "reason": "临时牌照在手机缩略图中不够突出",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-01-v2-before-mobile-focus.jpeg",
+      "replacementPath": "/question-images-registration-v2/m01-01-v2.jpeg",
+      "sha256": "7d9a3350838f9fa7d970c7ac0362433eafb06a1a10f46631400f2254b8897573"
+    },
+    {
+      "code": "M01_01",
+      "reason": "改用用户提供的真实临时号牌照片并进行隐私处理",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-01-v2-before-user-photo.jpeg",
+      "replacementPath": "/question-images-registration-v2/m01-01-v2.jpeg",
+      "sha256": "8467560e25d33dc503360d73f3c425fdf033183c5dfbf801a68fa6789a6ae409"
+    },
+    {
+      "code": "M01_02",
+      "reason": "警告标志与故障车的距离看起来不足150米",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-02-v2-before-150m-marker.jpeg",
+      "replacementPath": "/question-images-registration-v2/m01-02-v2.jpeg",
+      "sha256": "fa6ff19d76b9294eec51e8468e0503e3100488cc492b6ef3ed65d70b540474b7"
+    },
+    {
+      "code": "M01_02",
+      "reason": "150米标注过重、不够美观",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-02-v2-before-marker-polish.jpeg",
+      "replacementPath": "/question-images-registration-v2/m01-02-v2.jpeg",
+      "sha256": "c405c4dc2f8526b0befa427a98ab59c0c48e24090d39cfe95b86d6b124b39e60"
+    },
+    {
+      "code": "M01_02",
+      "reason": "取消虚线、端点和标注框，仅保留大号150米文字",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-02-v2-before-large-text-only.jpeg",
+      "replacementPath": "/question-images-registration-v2/m01-02-v2.jpeg",
+      "sha256": "acf4f8be6e26faf9671a9b99ffb72e1be0b8d1bbe524a020aee02cdb1e4f95b5"
+    },
+    {
+      "code": "M01_02",
+      "reason": "调整摄像机角度和焦距，提高远端人员、故障车及双闪灯在手机画面中的占比",
+      "archivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-02-v2-before-telephoto-camera.jpeg",
+      "rawArchivePath": "/question-images/旧图/登记管理类-M/迭代版本/m01-02-raw-before-telephoto-camera.png",
+      "replacementPath": "/question-images-registration-v2/m01-02-v2.jpeg",
+      "sha256": "1ffefbf5312eb5476d2e312c623abb35e87f6a689d55125d9e3e1986ea5f8c87",
+      "rawSha256": "bb5f5cec6c8074b5926162aab530163d73f1b0cdffc4670190ba9301685aaabb",
+      "replacementRawSha256": "01b601ea08dfac45aa513ac24fb5cc983e2cfd38e4cb5fd9d7be3d32ab3a2573"
+    }
+  ]
+}

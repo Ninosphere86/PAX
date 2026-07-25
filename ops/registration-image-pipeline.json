@@ -12,7 +12,7 @@
       "sourceImage": "/question-images/e89c367561d78962.webp",
       "questionHash": "9d6205252a29dde0",
       "updatedAt": "2026-07-25",
-      "note": "首批内部视觉核对通过，进入页面审图"
+      "note": "改用真实临牌照片，并遮挡号码、日期和拍摄者倒影；用户确认通过"
     },
     {
       "code": "M01_02",
@@ -22,7 +22,7 @@
       "sourceImage": "/question-images/3d9018c28164d315.webp",
       "questionHash": "a5a5a7e429689587",
       "updatedAt": "2026-07-25",
-      "note": "首批内部视觉核对通过，进入页面审图"
+      "note": "改用中长焦压缩透视，提高故障车、护栏外人员和双闪灯在手机画面中的占比；仅保留大号150米文字；用户确认通过"
     },
     {
       "code": "M01_03",

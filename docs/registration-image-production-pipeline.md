@@ -38,6 +38,8 @@ python scripts/manage_registration_pipeline.py archive --apply
 
 每批图片完成后，`finalize_registration_batch.py` 会自动生成三列总览图。总览图直接在 Codex 对话中提供，不在题库页面增加审图功能。
 
+审图统一遵循 [`docs/image-review-standards.md`](image-review-standards.md)。重点先检查主题是否是画面最显著内容，再检查约 360px 宽的手机预览；任何必须放大才能看清的答题或判断依据都不能通过。
+
 反馈时只需按总览图中的题号说明，例如：
 
 ```text
